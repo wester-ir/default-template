@@ -1,0 +1,14 @@
+{
+    "display_name": {
+        "en": "Default",
+        "fa": "پیشفرض"
+    },
+    "authors": [
+        {
+            "name": "Hossein Zare",
+            "url": "url"
+        }
+    ],
+    "screenshot": "screenshot.png",
+    "version": "1.0"
+}
