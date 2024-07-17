@@ -1,0 +1,22 @@
+[data-locked="true"] {
+    @apply pointer-events-none opacity-60;
+}
+
+
+@layer base {
+    .ltr-direction {
+        direction: ltr;
+    }
+    
+    .rtl-direction {
+        direction: rtl;
+    }
+
+    .show-scrollbar::-webkit-scrollbar {
+        display: initial;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^.*\.php$ - [F,L,NC]
+RewriteRule package.json - [F,L,NC]
+RewriteRule tailwind.config.js - [F,L,NC]

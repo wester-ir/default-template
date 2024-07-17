@@ -1,0 +1,160 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./components/fonts.css";
+@import "./components/button.css";
+@import "./components/input.css";
+@import "./components/form.css";
+@import "./components/table.css";
+@import "./components/toast.css";
+@import "./components/badge.css";
+@import "./components/modal.css";
+@import "./components/extra.css";
+@import "./components/selectbox.css";
+@import "./components/icons.css";
+@import "./components/tooltip.css";
+@import "./components/scrollbar.css";
+
+body {
+    @apply text-neutral-700 flex flex-col h-screen pt-[114px];
+
+    font-family: "Vazirmatn UI FD", serif;
+    font-feature-settings: "ss02";
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    @apply font-medium;
+}
+
+h1, .h1 {
+    @apply text-[2em];
+}
+
+h2, .h2 {
+    @apply text-[1.5em];
+}
+
+h3, .h3 {
+    @apply text-[1.12em];
+}
+
+h4, .h4 {
+    @apply text-[1em];
+}
+
+h5, .h5 {
+    @apply text-[0.83em];
+}
+
+h6, .h6 {
+    @apply text-[0.67em];
+}
+
+a.link, button.link {
+    @apply cursor-pointer hover:text-sky-500;
+
+    &:hover .icon {
+        @apply bg-sky-500;
+    }
+}
+
+.container {
+    @apply max-w-[1280px] mx-auto px-5;
+}
+
+header.header {
+    @apply relative bg-white py-3 z-10;
+}
+
+.header.header > .container {
+    @apply flex items-center justify-between;
+}
+
+header.header .search input[type="text"] {
+    @apply w-40 sm:w-64 md:w-[410px] h-10 px-4 rounded-full border border-neutral-300 focus:shadow transition-colors;
+}
+
+#categories-menu [data-role="category-children"] ul.main-ul {
+    @apply flex flex-col md:flex-wrap overflow-auto md:overflow-visible h-72 mt-4;
+}
+
+#categories-menu [data-role="category-children"] ul > li {
+    @apply mt-2 first:mt-0 md:mt-0;
+}
+
+#categories-menu [data-role="category-children"] ul > li a {
+    @apply flex items-center hover:text-primary font-medium w-full h-8 cursor-pointer;
+}
+
+#categories-menu [data-role="category-children"] ul > li > ul {
+    @apply flex flex-col md:flex-wrap md:h-64 mt-0 md:mt-2;
+}
+
+#categories-menu [data-role="category-children"] ul > li > ul a {
+    @apply font-light;
+}
+
+#categories-menu [data-role="category-children"] ul > li > ul a > .fi {
+    @apply hidden;
+}
+
+.main {
+    @apply flex flex-col flex-1 my-5;
+}
+
+.section {}
+
+.section > div.heading {
+    @apply flex items-center justify-between;
+}
+
+.section > div.heading > .title {
+    @apply border-b-4 border-amber-300 py-3 -mb-[3px];
+}
+
+.content-tabs > ul {
+    @apply flex space-x-3 rtl:space-x-reverse;
+}
+
+.content-tabs > ul > li {
+    @apply bg-neutral-50 text-neutral-600 hover:text-black border border-neutral-200 hover:border-neutral-400 px-3 py-2 rounded-lg cursor-pointer;
+}
+
+.content-tabs > ul > li[data-active="true"] {
+    @apply bg-white border-neutral-400 text-black;
+}
+
+.content-tabs .tab-section {
+    @apply mt-5;
+}
+
+.content-tabs .tab-section[data-active="false"] {
+    @apply hidden;
+}
+
+.orders-tabs {
+    a {
+        @apply text-neutral-500;
+    }
+
+    a[data-active="true"] {
+        @apply relative text-red-500;
+
+        &:after {
+            content: '';
+
+            @apply bg-red-500 absolute left-0 bottom-0 w-full h-1 rounded-tl-md rounded-tr-md;
+        }
+
+        .badge {
+            @apply bg-red-500;
+        }
+    }
+}

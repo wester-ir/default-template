@@ -1,0 +1,17 @@
+input[type="text"].default,
+input[type="password"].default,
+input[type="number"].default,
+select.default,
+textarea.default,
+.input.default {
+    @apply outline-none shadow-sm border border-gray-300 focus:border-neutral-500 focus:z-50 rounded-lg px-3 h-[38px] w-full disabled:bg-neutral-50;
+}
+
+input[type="text"][data-danger],
+input[type="password"][data-danger],
+input[type="number"][data-danger],
+select[data-danger],
+textarea[data-danger],
+.input[data-danger] {
+    @apply border-danger focus:border-danger focus:ring-danger shadow shadow-red-100;
+}

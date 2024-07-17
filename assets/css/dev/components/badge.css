@@ -1,0 +1,39 @@
+.badge {
+    @apply text-xs rounded-md whitespace-nowrap px-[10px] py-1;
+}
+
+.badge.badge-secondary {
+    @apply bg-neutral-400 text-white;
+}
+
+.badge.badge-light {
+    @apply bg-neutral-200 text-black;
+}
+
+.badge.badge-lime {
+    @apply bg-lime-300 text-black;
+}
+
+.badge.badge-warning {
+    @apply bg-yellow-400 text-white;
+}
+
+.badge.badge-light-yellow {
+    @apply bg-yellow-200 text-black;
+}
+
+.badge.badge-violet {
+    @apply bg-violet-500 text-white;
+}
+
+.badge.badge-success {
+    @apply bg-green-500 text-white;
+}
+
+.badge.badge-danger {
+    @apply bg-danger text-white;
+}
+
+.badge.badge-light-lime {
+    @apply bg-lime-100 text-green-700;
+}

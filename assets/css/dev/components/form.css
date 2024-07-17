@@ -1,0 +1,52 @@
+.form {
+    @apply space-y-5;
+}
+
+.form .form-control {
+    @apply flex flex-col;
+}
+
+.form .form-control label,
+.form .form-control .label {
+    @apply mb-2 select-none cursor-pointer;
+}
+
+.form .form-control .input-helper {
+    @apply mt-[5px] text-xs font-light;
+}
+
+.form .input-errors {
+    @apply text-sm text-red-600 space-y-1 mt-2;
+}
+
+.form .form-control[data-danger] label,
+.form .form-control[data-danger] .label {
+    @apply text-red-600 font-medium;
+}
+
+.form .form-control[data-danger] input[type="text"],
+.form .form-control[data-danger] input[type="password"],
+.form .form-control[data-danger] input[type="number"],
+.form .form-control[data-danger] select,
+.form .form-control[data-danger] textarea,
+.form .form-control[data-danger] .input {
+    @apply border-danger focus:border-danger focus:ring-danger shadow shadow-red-100 z-10;
+}
+
+.form .form-row {
+    @apply flex flex-col md:flex-row md:space-x-5 md:rtl:space-x-reverse space-y-5 md:space-y-0;
+}
+
+.form .form-row .form-control {
+    @apply flex-1 basis-0;
+}
+
+label.inline-form-control,
+.label.inline-form-control {
+    @apply flex items-center cursor-pointer select-none mb-0;
+}
+
+label.inline-form-control > span,
+.label.inline-form-control > span {
+    @apply text-sm font-light ms-3;
+}

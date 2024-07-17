@@ -1,0 +1,23 @@
+table.sizing-table {
+    @apply w-full text-sm text-left rtl:text-right text-gray-500;
+}
+
+table.sizing-table > thead {
+    @apply text-xs text-gray-700 uppercase bg-gray-50;
+}
+
+table.sizing-table > thead > tr > th {
+    @apply px-6 py-3;
+}
+
+table.sizing-table > tbody > tr {
+    @apply odd:bg-white even:bg-gray-50 border-b;
+}
+
+table.sizing-table > tbody > tr > th {
+    @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap;
+}
+
+table.sizing-table > tbody > tr > td {
+    @apply px-6 py-4;
+}

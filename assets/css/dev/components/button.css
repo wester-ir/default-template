@@ -1,0 +1,44 @@
+.btn {
+    @apply items-center px-3 py-2 h-[38px] rounded-lg font-light transition-all select-none;
+}
+
+.btn.btn-lg {
+    @apply px-5 py-3 h-[45px] font-medium;
+}
+
+.btn.btn-md {
+    @apply px-4 py-2 h-[37px];
+}
+
+.btn.btn-sm {
+    @apply px-4 py-2 h-[36px] text-sm;
+}
+
+.btn.btn-default {
+    @apply bg-neutral-100 hover:bg-neutral-200 border border-neutral-300;
+}
+
+.btn.btn-secondary {
+    @apply bg-neutral-100 hover:bg-neutral-200;
+}
+
+.btn.btn-light {
+    @apply bg-neutral-100 hover:bg-neutral-200 border border-neutral-100 hover:border-neutral-200;
+}
+
+.btn.btn-danger {
+    @apply bg-danger hover:bg-danger-hovered text-white;
+}
+
+.btn.btn-success {
+    @apply bg-success hover:bg-success-hovered text-white;
+}
+
+.btn.btn-white {
+    @apply bg-white hover:bg-neutral-50 border border-neutral-300;
+}
+
+button[data-role="like-product"][data-status="true"] > img[data-status="false"],
+button[data-role="like-product"][data-status="false"] > img[data-status="true"] {
+    @apply hidden;
+}

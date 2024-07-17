@@ -1,0 +1,35 @@
+.icon {
+    @apply flex w-5 h-5 bg-black;
+
+    mask-size: contain;
+    mask-repeat: no-repeat;
+}
+
+.icon-cart {
+    mask-image: url('../img/icons/cart.svg');
+}
+
+.icon-edit {
+    mask-image: url('../img/icons/edit.svg');
+}
+
+.icon-arrow-down {
+    mask-image: url('../img/icons/arrow-down.svg');
+}
+
+.icon-location {
+    mask-image: url('../img/icons/location.svg');
+}
+
+.icon-user {
+    mask-image: url('../img/icons/user.svg');
+}
+
+.icon-trash {
+    mask-image: url('../img/icons/trash.svg');
+}
+
+.icon-arrow-light-left {
+    mask-image: url('../img/icons/arrow-light-left.svg');
+}
+
