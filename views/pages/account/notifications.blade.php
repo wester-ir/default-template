@@ -62,7 +62,7 @@
                         @endforeach
 
                         @if ($notifications->isEmpty())
-                            <div class="text-center font-light">هیچ اعلانی ندارید</div>
+                            <div class="text-center font-light">هیچ اعلانی ندارید.</div>
                         @endif
                     </div>
                 </div>
