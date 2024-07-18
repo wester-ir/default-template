@@ -1,0 +1,1 @@
+## The default template for the Weska ecommerce project
