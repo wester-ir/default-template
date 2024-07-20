@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="container">
-        <form id="finalize-form" action="{{ route('client.cart.finalizing.finalize') }}" method="POST" class="flex space-x-5" onsubmit="return validate()">
+        <form id="finalize-form" action="{{ route('client.cart.finalizing.finalize') }}" method="POST" class="flex space-x-5 space-x-reverse" onsubmit="return validate()">
             @csrf
             <input type="hidden" name="invoice_key" value="">
 
