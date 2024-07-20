@@ -62,21 +62,29 @@
         <div class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse mt-3">
             <!-- Images -->
             <div class="w-full lg:w-[400px] space-y-3">
-                <div class="rounded overflow-hidden">
-                    <img src="{{ $product->image->url['medium'] }}" data-role="product-big-image" class="w-full" alt="{{ $product->title }}">
+                <div class="rounded-lg overflow-hidden">
+                    @if ($product->image)
+                        <img src="{{ $product->image->url['medium'] }}" data-role="product-big-image" class="w-full" alt="{{ $product->title }}">
+                    @else
+                        <div class="bg-neutral-100 flex items-center justify-center aspect-square">
+                            بدون عکس
+                        </div>
+                    @endif
                 </div>
 
-                <div class="flex border border-neutral-200 p-3 rounded space-x-3 rtl:space-x-reverse overflow-x-auto hide-scrollbar md:show-scrollbar">
-                    @foreach ($product->images as $image)
-                        <img
-                            src="{{ $image->url['thumbnail'] }}"
-                            data-original-image-url="{{ $image->url['original'] }}"
-                            data-medium-image-url="{{ $image->url['medium'] }}"
-                            data-image-id="{{ $image->id }}"
-                            data-role="product-tiny-image"
-                            class="object-contain w-20 h-20 cursor-pointer" alt="{{ $product->title }}">
-                    @endforeach
-                </div>
+                @if (! $product->images->isEmpty())
+                    <div class="flex border border-neutral-200 p-3 rounded-lg space-x-3 rtl:space-x-reverse overflow-x-auto hide-scrollbar md:show-scrollbar">
+                        @foreach ($product->images as $image)
+                            <img
+                                src="{{ $image->url['thumbnail'] }}"
+                                data-original-image-url="{{ $image->url['original'] }}"
+                                data-medium-image-url="{{ $image->url['medium'] }}"
+                                data-image-id="{{ $image->id }}"
+                                data-role="product-tiny-image"
+                                class="object-cover w-20 h-20 cursor-pointer" alt="{{ $product->title }}">
+                        @endforeach
+                    </div>
+                @endif
             </div>
 
             <!-- Details -->
