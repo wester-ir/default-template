@@ -197,7 +197,7 @@
                                 <div class="flex-1 mr-5">
                                     <h4><a href="{{ $item->product?->url ?: '#' }}">{{ $item->meta['title'] }}</a></h4>
                                     <div class="my-4 space-y-3">
-                                        @if ($item->meta['is_variant'])
+                                        @if ($item->meta['is_variable'])
                                             @foreach ($item->meta['variants'] as $variant)
                                                 <div class="flex items-center text-sm">
                                                     <div
