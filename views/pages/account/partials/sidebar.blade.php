@@ -65,10 +65,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center px-5 py-3 hover:bg-neutral-50">
-                        <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>
-                        <span class="ms-5">خروج</span>
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button href="#" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                            <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>
+                            <span class="ms-5">خروج</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
