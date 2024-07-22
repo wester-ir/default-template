@@ -51,7 +51,9 @@
                 </div>
 
                 <div class="flex justify-center md:justify-end">
-                    <div class="w-32 h-32 border border-neutral-200 rounded-md"></div>
+                    <div class="flex items-center justify-center w-32 h-32 p-2 border border-neutral-200 rounded-md">
+                        {!! settingService('general')['enamad_code'] !!}
+                    </div>
                 </div>
             </div>
         </div>
