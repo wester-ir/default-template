@@ -8,7 +8,7 @@
 @push('meta-tags')
     <meta name="product_id" content="{{ $product->id }}">
     <meta name="product_name" content="{{ $product->title }}">
-    <meta property="og:image" content="image_url">
+    <meta property="og:image" content="{{ $product->image->url['medium'] }}">
     <meta name="product_price" content="{{ $product->final_price }}">
     <meta name="product_old_price" content="{{ $product->price }}">
     <meta name="availability" content="{{ $product->is_quantity_unlimited || $product->quantity > 0 ? 'instock' : 'outofstock' }}">
