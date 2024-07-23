@@ -38,6 +38,9 @@
 
         <title>{{ $title }}</title>
 
+        <!-- Canonical -->
+        <link rel="canonical" href="{{ url()->current() }}" />
+
         <!-- Styles -->
         <link href="/assets/icons/fi/css/uicons-regular-rounded.css" rel="stylesheet">
         <link href="/assets/icons/fi/css/uicons-solid-rounded.css" rel="stylesheet">
