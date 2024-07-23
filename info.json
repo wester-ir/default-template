@@ -10,5 +10,6 @@
         }
     ],
     "screenshot": "screenshot.png",
-    "version": "1.0"
+    "version": "1.0",
+    "github": "https://github.com/weska-ir/default-template"
 }
