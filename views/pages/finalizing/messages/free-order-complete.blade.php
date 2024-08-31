@@ -1,5 +1,5 @@
 @extends('templates.default.views.layouts.default')
-@section('title', 'سفارش موفق')
+@title('سفارش موفق')
 
 @section('content')
     <div class="container flex flex-col items-center justify-center my-auto">

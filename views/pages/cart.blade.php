@@ -1,10 +1,10 @@
 @extends('templates.default.views.layouts.default')
-@inject('cartService', 'App\Services\CartService')
+
 @php
-    $itemsTotalQuantity = $cartService->getTotalQuantity();
+    $itemsTotalQuantity = get_cart_total_quantity();
 @endphp
 
-@section('title', 'سبد خرید')
+@title('سبد خرید')
 
 @section('content')
     <div class="container flex flex-col flex-1">

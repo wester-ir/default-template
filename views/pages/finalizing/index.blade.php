@@ -2,21 +2,23 @@
 @inject('cartService', 'App\Services\CartService')
 @use('App\Models\Province')
 @use('App\Models\Courier')
+
 @php
     $itemsTotalQuantity = $cartService->getTotalQuantity();
     $cart = \App\Repositories\CartRepository\UserCartRepository::get();
 @endphp
 
-@section('title', 'نهایی سازی سفارش')
+@title('نهایی سازی سفارش')
 
 @section('content')
     <div class="container">
-        <form id="finalize-form" action="{{ route('client.cart.finalizing.finalize') }}" method="POST" class="flex space-x-5 space-x-reverse" onsubmit="return validate()">
+        <form id="finalize-form" action="{{ route('client.cart.finalizing.finalize') }}" method="POST" class="flex flex-col md:flex-row" onsubmit="return validate()">
             @csrf
             <input type="hidden" name="invoice_key" value="">
+            <input type="hidden" name="payment_gateway" value="{{ $paymentGateways->isEmpty() ? null : $paymentGateways[0]->id }}">
 
             <!-- Content -->
-            <div class="space-y-5 flex-1">
+            <div class="space-y-5 flex-1 ml-0 md:ml-5">
                 @if (auth()->check() && settingService('cart')['discount'])
                     <!-- Discount -->
                     <div id="discount-form" class="form border border-neutral-200 rounded-lg p-5">
@@ -147,7 +149,7 @@
             </div>
 
             <!-- Left Sidebar -->
-            <div class="w-80">
+            <div class="w-full md:w-80 mt-5 md:mt-0">
                 <div class="space-y-5">
                     <div class="border border-neutral-200 rounded-lg p-5">
                         <h4>حمل و نقل</h4>
@@ -206,9 +208,22 @@
                                 <span data-role="stats-payable-amount"></span> {{ productCurrency()->label() }}
                             </div>
                         </div>
-
-                        <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm">ادامه سفارش</button>
                     </div>
+
+                    @if ($paymentGateways->count() > 1)
+                        <div class="border border-neutral-200 rounded-lg p-5">
+                            <h4>درگاه پرداخت</h4>
+                            <div class="grid grid-cols-3 gap-3 mt-4">
+                                @foreach ($paymentGateways as $gateway)
+                                    <div data-id="{{ $gateway->id }}" data-role="payment-gateway" data-is-active="{{ var_export($gateway->is_default) }}" class="flex items-center justify-center p-[2px] bg-white border border-neutral-200 rounded-lg overflow-hidden cursor-pointer data-[is-active=true]:border-green-400">
+                                        <img src="{{ $gateway->logo_url }}" class="w-full">
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm">ادامه سفارش</button>
                 </div>
 
                 <div class="text-neutral-600 text-xs font-light leading-6 mt-2">جهت جلوگیری از اتمام موجودی هر چه سریعتر نسبت به پرداخت هزینه سفارش خود اقدام کنید.</div>
@@ -275,6 +290,14 @@
             getStats();
         });
 
+        $('[data-role="payment-gateway"]').click(function () {
+            $('[data-role="payment-gateway"]').attr('data-is-active', false);
+            $(this).attr('data-is-active', true);
+            $('input[name="payment_gateway"]').val(
+                $(this).data('id')
+            );
+        });
+
         function setIsSelfEvent() {
             $('#is_self').change(function () {
                 const hasFullName = {{ var_export(auth()->user()->has_full_name ?? false, false) }};
@@ -304,6 +327,7 @@
 
             axios.post('{{ route('client.cart.finalizing.ajax.validate-form') }}', {
                 invoice_key: $('[name="invoice_key"]').val(),
+                payment_gateway: $('[name="payment_gateway"]').val(),
                 courier_id: $('[name="courier_id"]:checked').val(),
                 address_id: addressId,
                 address: ! addressId ? {

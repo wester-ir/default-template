@@ -1,19 +1,3 @@
-@inject('cartService', 'App\Services\CartService')
-@php
-    // Cart
-    $itemsTotalQuantity = $cartService->getTotalQuantity();
-    $pendingOrder = \App\Models\Order::currentActor()->payable()->first();
-
-    // Title
-    $titleWithoutSiteName ??= false;
-    $title = $__env->yieldContent('title');
-    $title = $title ? (
-        $titleWithoutSiteName ? '' : settingService('general')['title'] .' - '
-    ) . $title : settingService('general')['title'];
-
-    // Description
-    $description = str(text_from_html($__env->yieldContent('description') ?: settingService('general')['description']))->limit(160);
-@endphp
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
     <head>
@@ -22,21 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         @stack('meta-tags')
-        @if ($description)
-            <meta property="description" content="{{ $description }}">
-            <meta property="og:description" content="{{ $description }}">
-        @endif
+        <meta property="description" content="@description">
+        <meta property="og:description" content="@description">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="{{ settingService('general')['name'] }}">
-        <meta property="og:title" content="{{ $title }}">
-        <meta name="twitter:title" content="{{ $title }}">
+        <meta property="og:title" content="@title">
+        <meta name="twitter:title" content="@title">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:locale" content="fa_IR">
         <meta name="twitter:widgets:csp" content="on">
         <meta name="twitter:card" content="summary">
         <meta name="apple-mobile-web-app-title" content="{{ settingService('general')['name'] }}">
 
-        <title>{{ $title }}</title>
+        <title>@title</title>
 
         <!-- Canonical -->
         <link rel="canonical" href="{{ url()->current() }}" />
@@ -82,7 +64,9 @@
 
                         <a href="{{ route('client.cart.index') }}" class="relative mr-8" rel="nofollow">
                             <i class="icon icon-cart w-7 h-7"></i>
-                            <span data-role="items-total-quantity-count" class="absolute top-4 -right-3 flex items-center justify-center bg-green-500 border-2 border-neutral-100 px-2 rounded-md text-sm text-white font-light">{{ $itemsTotalQuantity }}</span>
+                            <span data-role="items-total-quantity-count" class="absolute top-4 -right-3 flex items-center justify-center bg-green-500 border-2 border-neutral-100 px-2 rounded-md text-sm text-white font-light">
+                                {{ get_cart_total_quantity() }}
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -120,35 +104,7 @@
         @yield('raw-content')
 
         <div class="main">
-            @if ($pendingOrder)
-                <div class="container mb-5">
-                    <div class="flex justify-between border border-red-300 rounded-md px-5 py-3">
-                        <div class="space-y-1">
-                            <div class="text-red-500 font-medium">یک سفارش در انتظار پرداخت دارید.</div>
-                            <div class="text-sm">لطفاً نسبت به پرداخت سفارش خود اقدام و یا لغو کنید.</div>
-                        </div>
-
-                        <div class="flex items-center">
-                            <div class="text-sm px-3">{{ number_format($pendingOrder->invoice->total_amount) }} {{ productCurrency()->label() }}</div>
-                            <div class="flex items-center justify-center font-light text-sm px-3 border-r border-neutral-200">
-                                <div class="flex items-center font-medium text-red-500 w-12" style="direction: ltr;" data-role="countdown" data-seconds="{{ $pendingOrder->expires_at->timestamp - now()->timestamp }}"></div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-sky-500 px-3">مشاهده</a>
-                            <form action="{{ route('client.cart.finalizing.order.cancel', $pendingOrder) }}" method="POST">
-                                @csrf
-                                @method('PATCH')
-
-                                <button class="text-sm font-medium text-danger px-3 border-r border-neutral-200">لغو سفارش</button>
-                            </form>
-                            <form action="{{ route('client.cart.finalizing.order.purchase', $pendingOrder) }}" method="POST">
-                                @csrf
-
-                                <button class="btn btn-success btn-sm mr-2">پرداخت سفارش</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @endif
+            @include('templates.default.views.layouts.default.pending-order')
 
             @yield('content')
         </div>
@@ -215,7 +171,6 @@
                         clearTimeout(timer);
 
                         // Scrolling up
-                        //header.find('nav').show();
                         navbar.attr('data-is-hidden', 'false');
                         isScrollingDown = false;
                     }

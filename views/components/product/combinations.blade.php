@@ -36,7 +36,7 @@
     <script>
         const cartItem = {
             product_id: {{ $product->id }},
-            product_combination_id: 36,
+            product_combination_id: null,
             uid: null,
         };
 

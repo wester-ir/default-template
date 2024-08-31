@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.default')
 
-@section('title', 'حساب کاربری')
+@title('حساب کاربری')
 
 @section('content')
     <div class="container">

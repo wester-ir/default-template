@@ -1,7 +1,6 @@
 @extends('templates.default.views.layouts.default')
-@inject('productService', 'App\Services\ProductService')
 
-@section('title', 'تراکنش یافت نشد')
+@title('تراکنش یافت نشد')
 
 @section('content')
     <div class="container flex flex-col items-center justify-center my-auto">

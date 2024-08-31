@@ -2,8 +2,8 @@
 @inject('productService', 'App\Services\ProductService')
 @inject('schemaService', 'App\Services\SchemaService')
 
-@section('title', $product->title)
-@section('description', $product->content->summary)
+@title($product->title, false)
+@description($product->content->summary)
 
 @push('meta-tags')
     <meta name="product_id" content="{{ $product->id }}">
@@ -197,28 +197,6 @@
         var swiper = new Swiper("#related-products", {
             slidesPerView: "auto",
             spaceBetween: 20,
-            // breakpoints: {
-            //     // when window width is >= 320px
-            //     420: {
-            //         slidesPerView: 2,
-            //         spaceBetween: 20
-            //     },
-            //     // when window width is >= 480px
-            //     600: {
-            //         slidesPerView: 3,
-            //         spaceBetween: 20
-            //     },
-            //     // when window width is >= 640px
-            //     800: {
-            //         slidesPerView: 4,
-            //         spaceBetween: 20
-            //     },
-            //     // when window width is >= 640px
-            //     1100: {
-            //         slidesPerView: 5,
-            //         spaceBetween: 20
-            //     },
-            // },
             freeMode: true,
         });
     </script>

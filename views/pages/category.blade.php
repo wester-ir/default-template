@@ -1,10 +1,7 @@
 @extends('templates.default.views.layouts.default')
 
-@php
-    $titleWithoutSiteName = true;
-@endphp
-@section('title', $category->page_title ?: $category->full_name_or_name)
-@section('description', $category->meta_description)
+@title([$category->page_title ?: $category->full_name_or_name, 'صفحه '. $products->currentPage()], false)
+@description($category->meta_description)
 
 @section('content')
     <div class="container">

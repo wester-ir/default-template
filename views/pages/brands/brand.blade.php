@@ -1,11 +1,10 @@
 @extends('templates.default.views.layouts.default')
 
 @php
-    $titleWithoutSiteName = true;
     $title = 'برند '. $brand->name . ' — '. $brand->latin_name;
 @endphp
-@section('title', $brand->page_title ?: $title)
-@section('description', $brand->meta_description)
+@title([$brand->page_title ?: $title, 'صفحه '. $products->currentPage()], false)
+@description($brand->meta_description)
 
 @section('content')
     <div class="container">

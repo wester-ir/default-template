@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.default')
 
-@section('title', 'سفارش #'. $order->id)
+@title('سفارش #'. $order->id)
 
 @section('content')
     <div class="container">
@@ -85,7 +85,7 @@
                                     @endif
 
                                     <div class="mr-3">
-                                        <form action="{{ route('client.cart.finalizing.order.cancel', $order) }}" method="POST">
+                                        <form action="{{ route('client.cart.finalizing.order.cancel', $order) }}" method="POST" onsubmit="return modal.defaults.confirmDanger(() => this.submit())">
                                             @csrf
                                             @method('PATCH')
 
@@ -169,7 +169,7 @@
                     </div>
                 </div>
 
-                <div class="mt-3">
+                <div class="space-y-3 mt-3">
                     @foreach ($order->items as $item)
                         <div class="border border-neutral-200 rounded-lg p-5">
                             @if ($item->has_returned_quantities)

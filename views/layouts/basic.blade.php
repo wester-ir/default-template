@@ -4,9 +4,9 @@
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="@description">
 
-    <title>@yield('title')</title>
+    <title>@title</title>
 
     <!-- Styles -->
     <link href="http://127.0.0.1/assets/icons/fi/css/uicons-regular-rounded.css" rel="stylesheet">
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="http://127.0.0.1/assets/js/library/jquery.min.js"></script>
     <script type="text/javascript" src="{{ template_asset('assets/js/base.js?t='. time()) }}"></script>
 </head>
-<body>
+<body class="p-0">
     @yield('content')
 
     <!-- Scripts -->

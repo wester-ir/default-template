@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.default')
 
-@section('title', 'سفارش ها')
+@title('سفارش ها')
 
 @section('content')
     <div class="container">
@@ -119,7 +119,7 @@
                                     </div>
 
                                     <!-- Items -->
-                                    <div class="p-5">
+                                    <div class="flex space-x-3 space-x-reverse p-5">
                                         @foreach ($order->items->take(5) as $item)
                                             <div>
                                                 @if ($item->relationLoaded('combination') && $item->combination->relationLoaded('image'))

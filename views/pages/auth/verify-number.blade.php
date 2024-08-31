@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.basic')
 
-@section('title', 'تایید شماره موبایل')
+@title('تایید شماره موبایل', false)
 
 @section('content')
     <div class="flex flex-col w-screen h-screen">

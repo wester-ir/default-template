@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.default')
 
-@section('title', $keyword)
+@title([$keyword, 'صفحه '. $products->currentPage()], false)
 
 @section('content')
     <div class="container">

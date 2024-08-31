@@ -1,7 +1,7 @@
 @extends('templates.default.views.layouts.default')
 
-@section('title', $tag->title ?: $tag->name)
-@section('description', $tag->summary ?: $tag->description)
+@title([$tag->title ?: $tag->name, 'صفحه '. $products->currentPage()], false)
+@description($tag->summary ?: $tag->description)
 
 @section('content')
     <div class="container">

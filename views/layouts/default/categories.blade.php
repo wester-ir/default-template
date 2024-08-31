@@ -1,7 +1,6 @@
-@inject('categoryService', 'App\Services\CategoryService')
 @php
     // Category
-    $categories = $categoryService->tree();
+    $categories = get_category_tree();
 
     if (! function_exists('renderCategories')) {
         function renderCategories($category, bool $first = true) {

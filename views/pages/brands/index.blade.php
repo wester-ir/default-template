@@ -1,10 +1,9 @@
 @extends('templates.default.views.layouts.default')
 
 @php
-    $titleWithoutSiteName = true;
     $title = 'برند ها';
 @endphp
-@section('title', $title)
+@title([$title, 'صفحه '. $brands->currentPage()], false)
 
 @section('content')
     <div class="container">

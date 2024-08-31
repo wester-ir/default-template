@@ -1,5 +1,6 @@
 @extends('templates.default.views.layouts.default')
-@section('title', 'سفارش تایید شده')
+
+@title('سفارش تایید شده')
 
 @section('content')
     <div class="container flex flex-col items-center justify-center my-auto">
