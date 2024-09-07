@@ -2,6 +2,10 @@
     @apply items-center px-3 py-2 h-[38px] rounded-lg font-light transition-all select-none;
 }
 
+.btn:disabled, .btn.disabled {
+    @apply pointer-events-none opacity-50;
+}
+
 .btn.btn-lg {
     @apply px-5 py-3 h-[45px] font-medium;
 }

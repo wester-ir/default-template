@@ -7,13 +7,9 @@
 @import "./components/input.css";
 @import "./components/form.css";
 @import "./components/table.css";
-@import "./components/toast.css";
 @import "./components/badge.css";
-@import "./components/modal.css";
 @import "./components/extra.css";
-@import "./components/selectbox.css";
 @import "./components/icons.css";
-@import "./components/tooltip.css";
 @import "./components/scrollbar.css";
 
 body {

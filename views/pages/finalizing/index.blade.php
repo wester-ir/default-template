@@ -210,20 +210,25 @@
                         </div>
                     </div>
 
-                    @if ($paymentGateways->count() > 1)
+                    @if ($paymentGateways->count() !== 1)
                         <div class="border border-neutral-200 rounded-lg p-5">
                             <h4>درگاه پرداخت</h4>
-                            <div class="grid grid-cols-3 gap-3 mt-4">
-                                @foreach ($paymentGateways as $gateway)
-                                    <div data-id="{{ $gateway->id }}" data-role="payment-gateway" data-is-active="{{ var_export($gateway->is_default) }}" class="flex items-center justify-center p-[2px] bg-white border border-neutral-200 rounded-lg overflow-hidden cursor-pointer data-[is-active=true]:border-green-400">
-                                        <img src="{{ $gateway->logo_url }}" class="w-full">
-                                    </div>
-                                @endforeach
-                            </div>
+
+                            @if (! $paymentGateways->isEmpty())
+                                <div class="grid grid-cols-3 gap-3 mt-4">
+                                    @foreach ($paymentGateways as $gateway)
+                                        <div data-id="{{ $gateway->id }}" data-role="payment-gateway" data-is-active="{{ var_export($gateway->is_default) }}" class="flex items-center justify-center p-[2px] bg-white border border-neutral-200 rounded-lg overflow-hidden cursor-pointer data-[is-active=true]:border-green-400">
+                                            <img src="{{ $gateway->logo_url }}" class="w-full">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="text-danger text-center mt-4">بدون درگاه پرداخت فعال</div>
+                            @endif
                         </div>
                     @endif
 
-                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm">ادامه سفارش</button>
+                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm" @disabled($paymentGateways->isEmpty())>ادامه سفارش</button>
                 </div>
 
                 <div class="text-neutral-600 text-xs font-light leading-6 mt-2">جهت جلوگیری از اتمام موجودی هر چه سریعتر نسبت به پرداخت هزینه سفارش خود اقدام کنید.</div>

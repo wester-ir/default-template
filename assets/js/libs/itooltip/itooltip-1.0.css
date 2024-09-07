@@ -1,0 +1,21 @@
+.itooltip {
+    pointer-events: none;
+    position: fixed;
+    z-index: 50000;
+    border-radius: 0.5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 300;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+[data-itooltip] * {
+    pointer-events: none;
+}

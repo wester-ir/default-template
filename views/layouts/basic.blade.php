@@ -9,13 +9,15 @@
     <title>@title</title>
 
     <!-- Styles -->
-    <link href="http://127.0.0.1/assets/icons/fi/css/uicons-regular-rounded.css" rel="stylesheet">
-    <link href="http://127.0.0.1/assets/icons/fi/css/uicons-solid-rounded.css" rel="stylesheet">
-    <link href="{{ template_asset('assets/css/style.css?t='. time()) }}" rel="stylesheet">
+    <link href="{{ asset('/assets/icons/fi/css/uicons-regular-rounded.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/icons/fi/css/uicons-solid-rounded.css') }}" rel="stylesheet">
+    <link href="{{ template_debuggable_asset('assets/css/style.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script type="text/javascript" src="http://127.0.0.1/assets/js/library/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ template_asset('assets/js/base.js?t='. time()) }}"></script>
+    <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/utils.js') }}"></script>
+
+    <!-- Jquery -->
+    <script type="text/javascript" src="{{ asset('/assets/libs/jquery/jquery.min.js') }}"></script>
 </head>
 <body class="p-0">
     @yield('content')

@@ -24,9 +24,9 @@
         <link rel="canonical" href="{{ url()->current() }}" />
 
         <!-- Styles -->
-        <link href="/assets/icons/fi/css/uicons-regular-rounded.css" rel="stylesheet">
-        <link href="/assets/icons/fi/css/uicons-solid-rounded.css" rel="stylesheet">
-        <link href="{{ template_asset('assets/css/style.css?t='. time()) }}" rel="stylesheet">
+        <link href="{{ asset('/assets/icons/fi/css/uicons-regular-rounded.css') }}" rel="stylesheet">
+        <link href="{{ asset('/assets/icons/fi/css/uicons-solid-rounded.css') }}" rel="stylesheet">
+        <link href="{{ template_debuggable_asset('/assets/css/style.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -37,15 +37,30 @@
                 clearCart: '{{ route('client.cart.ajax.clear') }}',
             };
         </script>
-        <script type="text/javascript" src="/assets/js/library/axios.min.js"></script>
-        <script type="text/javascript" src="/assets/js/library/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ template_asset('assets/js/base.js?t='. time()) }}"></script>
-        <script type="text/javascript" src="/assets/js/library/toast.js"></script>
-        <script type="text/javascript" src="/assets/js/library/locale.js?t=1712936936"></script>
-        <script type="text/javascript" src="/assets/js/library/modal.js?t=2712936936"></script>
-        <script type="text/javascript" src="/assets/js/library/selectbox.js?t=3712936936"></script>
-        <script type="text/javascript" src="/assets/js/library/tooltip.js?t=1719368490"></script>
-        <script type="text/javascript" src="{{ template_asset('assets/js/dropdown.js?t='. time()) }}"></script>
+        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/utils.js') }}"></script>
+
+        <!-- Axios -->
+        <script type="text/javascript" src="{{ asset('/assets/js/libs/axios/axios.min.js') }}"></script>
+
+        <!-- Jquery -->
+        <script type="text/javascript" src="{{ asset('/assets/js/libs/jquery/jquery.min.js') }}"></script>
+
+        <!-- Modal -->
+        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/modal/modal-1.0.min.js') }}"></script>
+        <link href="{{ template_debuggable_asset('/assets/js/libs/modal/modal-1.0.css') }}" rel="stylesheet">
+
+        <!-- iTooltip -->
+        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/itooltip/itooltip-1.0.min.js') }}"></script>
+        <link href="{{ template_debuggable_asset('/assets/js/libs/itooltip/itooltip-1.0.css') }}" rel="stylesheet">
+
+        <!-- Selectbox -->
+        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/selectbox/selectbox-1.0.min.js') }}"></script>
+        <link href="{{ template_debuggable_asset('/assets/js/libs/selectbox/selectbox-1.0.css') }}" rel="stylesheet">
+
+        <!-- Toast -->
+        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/toast/toast-1.0.min.js') }}"></script>
+        <link href="{{ template_debuggable_asset('/assets/js/libs/toast/toast-1.0.css') }}" rel="stylesheet">
+
         @stack('head-scripts')
     </head>
     <body>
@@ -114,7 +129,7 @@
 
         <!-- Scripts -->
         @stack('bottom-scripts')
-        <script type="text/javascript" src="{{ template_asset('assets/js/main.js?t='. time()) }}"></script>
+        <script type="text/javascript" src="{{ template_debuggable_asset('assets/js/main.js') }}"></script>
         <script>
             ready(function () {
                 axios.defaults.withCredentials = true;

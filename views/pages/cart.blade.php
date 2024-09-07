@@ -36,8 +36,8 @@
             <div>لطفاً جهت ادامه سفارش این محصولات را از سبد خرید خود حذف نمایید.</div>
         </div>
 
-        <div data-role="cart-details" class="flex space-x-5 space-x-reverse">
-            <div class="border border-neutral-200 rounded-lg p-5 flex-1">
+        <div data-role="cart-details" class="flex flex-col md:flex-row">
+            <div class="border border-neutral-200 rounded-lg p-5 flex-1 ml-0 md:ml-5">
                 <div>
                     <h3>سبد خرید شما</h3>
                     <div class="flex items-center justify-between">
@@ -46,10 +46,11 @@
                     </div>
                 </div>
 
+                <!-- Items -->
                 <div data-role="items" class="mt-5 space-y-6"></div>
             </div>
 
-            <div class="w-80">
+            <div class="w-full md:w-80 mt-5 md:mt-0">
                 <div data-role="stats" class="border border-neutral-200 rounded-lg p-5 space-y-4">
                     <div class="flex items-center justify-between text-neutral-600 text-sm">
                         <div class="font-light">قیمت کالا ها (<span data-role="items-total-quantity-count">{{ $itemsTotalQuantity }}</span>)</div>
@@ -87,7 +88,7 @@
                 items += '<div data-role="cart-item" data-id="'+ item.product_combination_id +'" data-amount-per-sale="'+ item.amount_per_sale +'">';
                     items += '<div class="flex">';
                         // Image
-                        items += '<a href="'+ (item.url || '#') +'" class="block w-36 min-w-[9rem] h-36 min-h-[9rem]">';
+                        items += '<a href="'+ (item.url || '#') +'" class="block w-32 min-w-[8rem] h-32 min-h-[8rem]">';
                             if (item.image) {
                                 items += '<img src="'+ item.image.url['thumbnail'] +'" class="bg-neutral-100 object-cover w-full h-full rounded-lg">';
                             } else {
@@ -110,7 +111,7 @@
                                         items += '<i class="fi fi-rr-triangle-warning text-lg flex ms-2"></i>';
                                     }
                                 items += '</div>';
-                                items += '<button class="text-danger text-sm font-light mr-2" onclick="modal.defaults.confirmDanger(() => { $(\'[data-role=remove-item]\').click(); })">حذف</button>';
+                                items += '<button class="text-danger text-xs md:text-sm font-light mr-2" onclick="modal.defaults.confirmDanger(() => { $(\'[data-role=remove-item]\').click(); })">حذف</button>';
                             items += '</div>';
 
                             items += '<div class="mt-3 space-y-2 font-light text-sm">';
@@ -137,8 +138,8 @@
                         items += '</div>';
                     items += '</div>';
 
-                    items += '<div class="flex items-center mt-2">'
-                        items += '<div class="w-36 min-w-[9rem]">';
+                    items += '<div class="flex items-center mt-2">';
+                        items += '<div class="w-32 min-w-[8rem]">';
                             var increaseBtnClass = '';
                             var quantityInputClass = '';
                             var decreaseBtnClass = 'hidden';
