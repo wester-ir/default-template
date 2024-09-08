@@ -1,7 +1,7 @@
 /**
  * The iTooltip library.
  *
- * @github  https://github.com/weska-ir/itooltip-js
+ * @github  https://github.com/weska-ir/itooltip
  * @version 1.0
  */
 (function($) {

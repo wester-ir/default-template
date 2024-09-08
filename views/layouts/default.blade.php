@@ -46,20 +46,20 @@
         <script type="text/javascript" src="{{ asset('/assets/js/libs/jquery/jquery.min.js') }}"></script>
 
         <!-- Modal -->
-        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/modal/modal-1.0.min.js') }}"></script>
-        <link href="{{ template_debuggable_asset('/assets/js/libs/modal/modal-1.0.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ debuggable_asset('/assets/js/libs/modal/modal.min.js') }}"></script>
+        <link href="{{ debuggable_asset('/assets/js/libs/modal/modal.css') }}" rel="stylesheet">
 
         <!-- iTooltip -->
-        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/itooltip/itooltip-1.0.min.js') }}"></script>
-        <link href="{{ template_debuggable_asset('/assets/js/libs/itooltip/itooltip-1.0.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ debuggable_asset('/assets/js/libs/itooltip/itooltip.min.js') }}"></script>
+        <link href="{{ debuggable_asset('/assets/js/libs/itooltip/itooltip.css') }}" rel="stylesheet">
 
         <!-- Selectbox -->
-        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/selectbox/selectbox-1.0.min.js') }}"></script>
-        <link href="{{ template_debuggable_asset('/assets/js/libs/selectbox/selectbox-1.0.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ debuggable_asset('/assets/js/libs/selectbox/selectbox.min.js') }}"></script>
+        <link href="{{ debuggable_asset('/assets/js/libs/selectbox/selectbox.css') }}" rel="stylesheet">
 
         <!-- Toast -->
-        <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/libs/toast/toast-1.0.min.js') }}"></script>
-        <link href="{{ template_debuggable_asset('/assets/js/libs/toast/toast-1.0.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ debuggable_asset('/assets/js/libs/toast/toast.min.js') }}"></script>
+        <link href="{{ debuggable_asset('/assets/js/libs/toast/toast.css') }}" rel="stylesheet">
 
         @stack('head-scripts')
     </head>

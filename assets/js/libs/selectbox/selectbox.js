@@ -1,7 +1,7 @@
 /**
  * The Selectbox notification library.
  *
- * @github  https://github.com/weska-ir/selectbox-js
+ * @github  https://github.com/weska-ir/selectbox
  * @version 1.0
  */
 (function ($) {
