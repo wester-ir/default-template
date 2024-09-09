@@ -5,7 +5,11 @@
 <a href="{{ $product->url }}" class="flex flex-col h-full bg-white border border-neutral-200 hover:shadow-md hover:shadow-neutral-100 rounded-xl transition-all overflow-hidden">
     <div class="flex flex-col relative flex-1 m-2">
         @include('templates.default.views.components.product.items.partials.tags')
-        <img src="{{ $product->image['url']['thumbnail'] }}" alt="{{ $product->title }}" class="w-full h-60 object-cover rounded-lg">
+        @if ($product->image)
+            <img src="{{ $product->image['url']['thumbnail'] }}" alt="{{ $product->title }}" class="w-full h-60 object-cover rounded-lg">
+        @else
+            <div class="bg-neutral-200 flex items-center justify-center h-60 rounded-lg">بدون عکس</div>
+        @endif
     
         <div class="flex flex-col flex-1 mt-3">
             <!-- Title -->

@@ -8,7 +8,7 @@
 @push('meta-tags')
     <meta name="product_id" content="{{ $product->id }}">
     <meta name="product_name" content="{{ $product->title }}">
-    <meta property="og:image" content="{{ $product->image->url['medium'] }}">
+    @if ($product->image)<meta property="og:image" content="{{ $product->image->url['medium'] }}">@endif
     <meta name="product_price" content="{{ $product->final_price }}">
     <meta name="product_old_price" content="{{ $product->price }}">
     <meta name="availability" content="{{ $product->is_quantity_unlimited || $product->quantity > 0 ? 'instock' : 'outofstock' }}">
@@ -59,36 +59,46 @@
 
 @section('content')
     <div class="container">
-        <div class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse mt-3">
+        <div class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse">
             <!-- Images -->
             <div class="w-full lg:w-[400px] space-y-3">
-                <div class="rounded-lg overflow-hidden">
-                    @if ($product->image)
-                        <img src="{{ $product->image->url['medium'] }}" data-role="product-big-image" class="w-full" alt="{{ $product->title }}">
-                    @else
-                        <div class="bg-neutral-100 flex items-center justify-center aspect-square">
-                            بدون عکس
-                        </div>
-                    @endif
-                </div>
-
                 @if (! $product->images->isEmpty())
-                    <div class="flex border border-neutral-200 p-3 rounded-lg space-x-3 rtl:space-x-reverse overflow-x-auto hide-scrollbar md:show-scrollbar">
-                        @foreach ($product->images as $image)
-                            <img
-                                src="{{ $image->url['thumbnail'] }}"
-                                data-original-image-url="{{ $image->url['original'] }}"
-                                data-medium-image-url="{{ $image->url['medium'] }}"
-                                data-image-id="{{ $image->id }}"
-                                data-role="product-tiny-image"
-                                class="object-cover w-20 h-20 cursor-pointer" alt="{{ $product->title }}">
-                        @endforeach
+                    <div class="swiper product-image-slider">
+                        <div class="swiper-wrapper rounded-lg">
+                            @foreach ($product->images as $image)
+                                <div class="swiper-slide">
+                                    <img src="{{ $image->url['medium'] }}" class="w-full" alt="{{ $product->title }}">
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                    <div class="flex border border-neutral-200 rounded-lg p-1">
+                        <div thumbsSlider="" class="swiper product-image-thumb-slider">
+                            <div class="swiper-wrapper">
+                                @foreach ($product->images as $image)
+                                    <div class="swiper-slide">
+                                        <img
+                                            src="{{ $image->url['thumbnail'] }}"
+                                            class="object-cover rounded-md w-20 h-20" alt="{{ $product->title }}">
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="bg-neutral-200 flex items-center justify-center aspect-square rounded-lg">
+                        بدون عکس
                     </div>
                 @endif
             </div>
 
             <!-- Details -->
-            <div class="flex-1 mt-10 lg:mt-0">
+            <div class="flex-1 mt-5 lg:mt-0">
                 <div class="flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center">
                     <h1 class="text-2xl font-medium">{{ $product->title }}</h1>
 
@@ -181,17 +191,34 @@
 @endsection
 
 @push('bottom-scripts')
-    <link rel="stylesheet" href="{{ template_asset('/assets/packages/swiper/swiper-bundle.min.css') }}" />
-    <script src="{{ template_asset('/assets/packages/swiper/swiper-bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ template_asset('/assets/js/libs/swiper/swiper-bundle.min.css') }}" />
+    <script src="{{ template_asset('/assets/js/libs/swiper/swiper-bundle.min.js') }}"></script>
+    @if ($product->image)
+        <script>
+            var thumbSwiper = new Swiper(".product-image-thumb-slider", {
+                spaceBetween: 4,
+                slidesPerView: 4,
+                watchSlidesProgress: true,
+            });
+
+            var swiper = new Swiper(".product-image-slider", {
+                cssMode: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                thumbs: {
+                    swiper: thumbSwiper,
+                },
+            });
+        </script>
+    @endif
     <script>
         ready(function () {
             selectCombination('{{ $product->combinations[0]->uid }}');
-        });
-
-        $('img[data-role="product-tiny-image"]').click(function () {
-            const originalUrl = $(this).data('original-image-url');
-
-            $('img[data-role="product-big-image"]').attr('src', originalUrl);
         });
 
         var swiper = new Swiper("#related-products", {

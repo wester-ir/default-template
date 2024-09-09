@@ -6,8 +6,11 @@
 <a href="{{ $product->url }}" class="flex flex-col h-full bg-white rounded-lg transition-all overflow-hidden">
     <div class="flex flex-col relative flex-1">
         @include('templates.default.views.components.product.items.partials.tags')
-
-        <img src="{{ $product->image['url']['thumbnail'] }}" alt="{{ $product->title }}" class="w-full object-cover rounded-md" style="height: {{ $imageHeight }}px;">
+        @if ($product->image)
+            <img src="{{ $product->image['url']['thumbnail'] }}" alt="{{ $product->title }}" class="w-full object-cover rounded-md" style="height: {{ $imageHeight }}px;">
+        @else
+            <div class="bg-neutral-200 flex items-center justify-center rounded-lg" style="height: {{ $imageHeight }}px;">بدون عکس</div>
+        @endif
 
         <div class="flex flex-col flex-1 mt-3">
             <div class="text-sm">{{ $product->title }}</div>
