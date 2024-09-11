@@ -45,7 +45,7 @@
                                     <div class="flex items-center mt-3 space-x-3 space-x-reverse">
                                         @foreach ($notification->order->items->take(3) as $item)
                                             <div>
-                                                <img src="{{ $item->combination->image->url['thumbnail'] }}" class="w-16 h-16 rounded-md">
+                                                <img src="{{ $item->combination->image->url['thumbnail'] }}" class="w-16 h-16 object-cover rounded-md">
                                             </div>
                                         @endforeach
                                     </div>
