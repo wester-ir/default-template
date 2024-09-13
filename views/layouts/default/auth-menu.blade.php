@@ -1,9 +1,15 @@
 @if (auth()->check())
     <div class="flex">
         <div data-role="dropdown" class="relative">
-            <button data-role="dropdown-trigger" type="button" data-is-active="false" class="btn text-sm font-normal data-[is-active=true]:bg-white">
+            <button data-role="dropdown-trigger" type="button" data-is-active="false" class="flex items-center btn text-sm font-normal data-[is-active=true]:bg-white">
                 <span class="hidden md:block" data-role="users-full-name">{{ auth()->user()->full_name ?? 'کاربر' }}</span>
                 <i class="fi fi-rr-user flex md:hidden text-2xl"></i>
+
+                <div class="mr-1">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
             </button>
 
             <div data-role="dropdown-content" class="absolute hidden z-[10000] w-60 mt-[6px] rounded-md shadow-lg origin-top-left left-0 bg-white">

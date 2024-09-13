@@ -842,6 +842,10 @@ video {
   margin-top: auto !important;
 }
 
+.ms-1 {
+  margin-inline-start: 0.25rem !important;
+}
+
 .block {
   display: block !important;
 }
@@ -1505,6 +1509,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.fill-current {
+  fill: currentColor !important;
 }
 
 .object-cover {
