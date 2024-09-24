@@ -17,6 +17,7 @@
         <meta name="twitter:widgets:csp" content="on">
         <meta name="twitter:card" content="summary">
         <meta name="apple-mobile-web-app-title" content="{{ settingService('general')['name'] }}">
+        <meta name="color-scheme" content="light">
 
         <title>@title</title>
 
@@ -62,6 +63,8 @@
         <link href="{{ debuggable_asset('/assets/js/libs/toast/toast.css') }}" rel="stylesheet">
 
         @stack('head-scripts')
+
+        {!! template_head() !!}
     </head>
     <body>
         <div class="fixed top-0 left-0 right-0 z-50">

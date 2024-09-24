@@ -92,7 +92,7 @@
                             if (item.image) {
                                 items += '<img src="'+ item.image.url['thumbnail'] +'" class="bg-neutral-100 object-cover w-full h-full rounded-lg">';
                             } else {
-                                items += '<div class="flex items-center justify-center bg-neutral-200 w-36 h-36 rounded-lg text-sm text-neutral-500">بدون عکس</div>';
+                                items += '<div class="flex items-center justify-center bg-neutral-200 w-32 min-w-[8rem] h-32 min-h-[8rem] rounded-lg text-sm text-neutral-500">بدون عکس</div>';
                             }
                         items += '</a>';
 

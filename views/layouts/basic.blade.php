@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@description">
+    <meta name="color-scheme" content="light">
 
     <title>@title</title>
 
@@ -18,6 +19,8 @@
 
     <!-- Jquery -->
     <script type="text/javascript" src="{{ asset('/assets/libs/jquery/jquery.min.js') }}"></script>
+
+    {!! template_head() !!}
 </head>
 <body class="p-0">
     @yield('content')
