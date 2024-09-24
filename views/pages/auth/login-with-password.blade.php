@@ -7,10 +7,8 @@
         <div class="md:border border-neutral-200 w-full md:w-[420px] rounded-xl m-auto">
             <div class="p-8">
                 <div class="flex justify-center mb-5">
-                    <a href="{{ route('client.index') }}" class="flex items-center justify-center">
-                        <div class="flex items-center justify-center font-medium text-white w-10 h-10 rounded-lg bg-green-400">L</div>
-                        <span class="font-medium ms-3 hidden md:block">{{ settingService('general')['name'] }}</span>
-                    </a>
+                    <!-- Logo -->
+                    @include('templates.default.views.layouts.default.logo', ['withName' => false])
                 </div>
 
                 <div class="mt-9">

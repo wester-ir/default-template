@@ -19,6 +19,12 @@
         <meta name="apple-mobile-web-app-title" content="{{ settingService('general')['name'] }}">
         <meta name="color-scheme" content="light">
 
+        @if (has_site_logo())
+            <!-- Icons -->
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ site_favicon(32) }}">
+            <link rel="icon" type="image/png" sizes="16x16" href="{{ site_favicon(16) }}">
+        @endif
+
         <title>@title</title>
 
         <!-- Canonical -->
