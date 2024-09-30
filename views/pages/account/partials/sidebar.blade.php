@@ -59,7 +59,7 @@
                         <i class="fi fi-rr-bell flex"></i>
                         <span class="ms-5">اعلان ها</span>
 
-                        @if ($unreadNotifications = auth()->user()->unreadNotifications()->count())
+                        @if ($unreadNotifications)
                             <span class="badge badge-danger mr-auto -ml-2">{{ $unreadNotifications > 100 ? '+100' : $unreadNotifications }}</span>
                         @endif
                     </a>

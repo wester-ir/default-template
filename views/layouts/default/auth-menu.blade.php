@@ -1,7 +1,3 @@
-@php
-    $unreadNotifications = auth()->user()->unreadNotifications()->count();
-@endphp
-
 @if (auth()->check())
     <div class="flex">
         <div data-role="dropdown" class="relative">
