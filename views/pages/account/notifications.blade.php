@@ -44,9 +44,15 @@
 
                                     <div class="flex items-center mt-3 space-x-3 space-x-reverse">
                                         @foreach ($notification->order->items->take(3) as $item)
-                                            <div>
-                                                <img src="{{ $item->combination->image->url['thumbnail'] }}" class="w-16 h-16 object-cover rounded-md">
-                                            </div>
+                                            @if ($item->relationLoaded('combination') && $item->combination->relationLoaded('image') && $item->combination->image)
+                                                <a href="{{ $item->product?->url ?: '#' }}">
+                                                    <img src="{{ $item->combination->image['url']['thumbnail'] }}"
+                                                        class="w-16 h-16 object-cover rounded-md"
+                                                        title="{{ $item->meta['title'] }}" alt="{{ $item->meta['title'] }}">
+                                                </a>
+                                            @else
+                                                <div class="bg-neutral-100 w-24 h-24 rounded-md"></div>
+                                            @endif
                                         @endforeach
                                     </div>
 
