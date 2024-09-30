@@ -153,24 +153,28 @@
                 <div class="space-y-5">
                     <div class="border border-neutral-200 rounded-lg p-5">
                         <h4>حمل و نقل</h4>
-                        <div class="mt-4 space-y-4">
-                            @foreach (Courier::active()->get() as $courier)
-                                <div class="flex items-start">
-                                    <div class="pt-1">
-                                        <input type="radio" name="courier_id" value="{{ $courier->id }}" checked>
-                                    </div>
-                                    <div class="flex-1 ms-3">
-                                        <div class="flex justify-between">
-                                            <div class="text-sm font-medium">{{ $courier->name }}</div>
-                                            <div class="text-sm font-medium">{{ number_format($courier->cost) }} {{ productCurrency()->label() }}</div>
+                        @if (! $couriers->isEmpty())
+                            <div class="mt-4 space-y-4">
+                                @foreach ($couriers as $courier)
+                                    <div class="flex items-start">
+                                        <div class="pt-1">
+                                            <input type="radio" name="courier_id" value="{{ $courier->id }}" checked>
                                         </div>
-                                        <div class="mt-1">
-                                            <div class="text-sm">{{ $courier->type->label() }}</div>
+                                        <div class="flex-1 ms-3">
+                                            <div class="flex justify-between">
+                                                <div class="text-sm font-medium">{{ $courier->name }}</div>
+                                                <div class="text-sm font-medium">{{ number_format($courier->cost) }} {{ productCurrency()->label() }}</div>
+                                            </div>
+                                            <div class="mt-1">
+                                                <div class="text-sm">{{ $courier->type->label() }}</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="text-danger text-center mt-4">بدون پیک فعال</div>
+                        @endif
                     </div>
 
                     <div data-role="stats" data-is-active="false" class="border border-neutral-200 rounded-lg p-5 space-y-4 data-[is-active=false]:pointer-events-none data-[is-active=false]:opacity-50">
@@ -228,7 +232,7 @@
                         </div>
                     @endif
 
-                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm" @disabled($paymentGateways->isEmpty())>ادامه سفارش</button>
+                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm" @disabled($isContinueBtnActive)>ادامه سفارش</button>
                 </div>
 
                 <div class="text-neutral-600 text-xs font-light leading-6 mt-2">جهت جلوگیری از اتمام موجودی هر چه سریعتر نسبت به پرداخت هزینه سفارش خود اقدام کنید.</div>
@@ -322,7 +326,10 @@
         }
 
         function validate() {
+            const btn = document.querySelector('[data-role="continue-btn"]');
+
             form.resetFormErrors('#finalize-form');
+            lockElem(btn);
 
             var addressId = $('input[name="address_id"]:checked').val();
             
@@ -367,6 +374,9 @@
                             'address.number': 'number',
                         });
                     }
+                })
+                .finally(function() {
+                    unlockElem(btn);
                 });
 
             return false;

@@ -1,3 +1,7 @@
+@php
+    $unreadNotifications = auth()->user()->unreadNotifications()->count();
+@endphp
+
 @if (auth()->check())
     <div class="flex">
         <div data-role="dropdown" class="relative">
@@ -10,6 +14,10 @@
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </div>
+
+                @if ($unreadNotifications)
+                    <div class="absolute left-0 top-[14px] w-2 h-2 rounded-full bg-red-400 ring ring-red-200 animate-pulse"></div>
+                @endif
             </button>
 
             <div data-role="dropdown-content" class="absolute hidden z-[10000] w-60 mt-[6px] rounded-md shadow-lg origin-top-left left-0 bg-white">
@@ -27,7 +35,7 @@
                         </div>
                         <span>اعلان ها</span>
 
-                        @if ($unreadNotifications = auth()->user()->unreadNotifications()->count())
+                        @if ($unreadNotifications)
                             <span class="badge badge-danger mr-auto">{{ $unreadNotifications > 100 ? '+100' : $unreadNotifications }}</span>
                         @endif
                     </a>
