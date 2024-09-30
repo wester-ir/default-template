@@ -7,7 +7,7 @@
 @title('سبد خرید')
 
 @section('content')
-    <div class="container flex flex-col flex-1">
+    <div class="container flex flex-col flex-1 min-h-[115px]">
         <!-- Empty -->
         <div data-role="empty-cart-message" class="flex hidden items-center justify-center flex-1">
             هیچ محصولی در سبد خرید ندارید!

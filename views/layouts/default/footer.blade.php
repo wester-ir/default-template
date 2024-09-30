@@ -1,4 +1,4 @@
-<footer class="footer mt-2">
+<footer class="footer">
     <div class="bg-neutral-100 py-10">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-x-5 gap-y-10">
