@@ -18,7 +18,7 @@
     <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/utils.js') }}"></script>
 
     <!-- Jquery -->
-    <script type="text/javascript" src="{{ asset('/assets/libs/jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/libs/jquery/jquery.min.js') }}"></script>
 
     {!! template_head() !!}
 </head>
