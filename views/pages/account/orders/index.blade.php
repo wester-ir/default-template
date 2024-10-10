@@ -9,7 +9,7 @@
             @include('templates.default.views.pages.account.partials.sidebar')
 
             <!-- Content -->
-            <div class="flex-1 w-full md:mr-5">
+            <div class="flex-1 w-full md:w-0 md:mr-5">
                 <div class="border border-neutral-200 rounded-lg p-5">
                     <div class="flex items-center justify-between">
                         <h3>سفارش ها</h3>
@@ -41,6 +41,7 @@
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->cancelled }}</span>
                                 @endif
                             </a>
+                            
                             <a href="{{ route('client.account.orders.index', ['type' => 'returned']) }}" data-active="{{ var_export(query('type') === 'returned') }}" class="py-2 px-3">
                                 <span>مرجوع شده</span>
                                 @if ($orderStats->returned !== 0)

@@ -154,3 +154,27 @@ header.header .search input[type="text"] {
         }
     }
 }
+
+.account-sidebar {
+    @apply md:min-w-[250px] md:w-[280px] lg:w-[340px] md:block;
+
+    .navigation {
+        @apply flex flex-row md:flex-col md:divide-y divide-neutral-200 overflow-auto;
+
+        li {
+            @apply flex-1 md:flex-auto basis-0;
+        }
+
+        li .item {
+            @apply flex flex-col w-full whitespace-nowrap justify-center md:justify-start md:flex-row items-center px-2 md:px-5 py-2 md:py-3 h-full hover:bg-neutral-50;
+
+            .label {
+                @apply mt-2 md:mt-0 md:ms-5 text-center text-xs md:text-base;
+            }
+
+            &.active {
+                @apply bg-neutral-100;
+            }
+        }
+    }
+}

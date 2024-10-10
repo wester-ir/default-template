@@ -966,6 +966,10 @@ video {
   height: 100vh !important;
 }
 
+.min-h-\[115px\] {
+  min-height: 115px !important;
+}
+
 .min-h-\[150px\] {
   min-height: 150px !important;
 }
@@ -980,10 +984,6 @@ video {
 
 .min-h-\[8rem\] {
   min-height: 8rem !important;
-}
-
-.min-h-\[115px\] {
-  min-height: 115px !important;
 }
 
 .w-10 {
@@ -1104,6 +1104,10 @@ video {
 
 .w-screen {
   width: 100vw !important;
+}
+
+.w-0 {
+  width: 0px !important;
 }
 
 .min-w-\[8rem\] {
@@ -1665,6 +1669,14 @@ video {
 .text-xs {
   font-size: 0.75rem !important;
   line-height: 1rem !important;
+}
+
+.text-\[25px\] {
+  font-size: 25px !important;
+}
+
+.text-\[28px\] {
+  font-size: 28px !important;
 }
 
 .font-bold {
@@ -2901,6 +2913,148 @@ header.header .search input[type="text"]:focus {
 }
 
 @media (min-width: 768px) {
+  .account-sidebar {
+    display: block;
+    width: 280px;
+    min-width: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .account-sidebar {
+    width: 340px;
+  }
+}
+
+.account-sidebar {
+  .navigation {
+    display: flex;
+  }
+  .navigation {
+    flex-direction: row;
+  }
+  .navigation > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-opacity: 1;
+    border-color: rgb(229 229 229 / var(--tw-divide-opacity));
+  }
+  .navigation {
+    overflow: auto;
+  }
+  @media (min-width: 768px) {
+    .navigation {
+      flex-direction: column;
+    }
+  }
+  @media (min-width: 768px) {
+    .navigation > :not([hidden]) ~ :not([hidden]) {
+      --tw-divide-y-reverse: 0;
+      border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+      border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+    }
+  }
+  .navigation {
+    li {
+      flex: 1 1 0%;
+    }
+    li {
+      flex-basis: 0px;
+    }
+    @media (min-width: 768px) {
+      li {
+        flex: 1 1 auto;
+      }
+    }
+    li .item {
+      display: flex;
+    }
+    li .item {
+      height: 100%;
+    }
+    li .item {
+      width: 100%;
+    }
+    li .item {
+      flex-direction: column;
+    }
+    li .item {
+      align-items: center;
+    }
+    li .item {
+      justify-content: center;
+    }
+    li .item {
+      white-space: nowrap;
+    }
+    li .item {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    li .item {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    li .item:hover {
+      --tw-bg-opacity: 1;
+      background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+    }
+    @media (min-width: 768px) {
+      li .item {
+        flex-direction: row;
+      }
+    }
+    @media (min-width: 768px) {
+      li .item {
+        justify-content: flex-start;
+      }
+    }
+    @media (min-width: 768px) {
+      li .item {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+    @media (min-width: 768px) {
+      li .item {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+    }
+    li .item {
+      .label {
+        margin-top: 0.5rem;
+      }
+      .label {
+        text-align: center;
+      }
+      .label {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      @media (min-width: 768px) {
+        .label {
+          margin-top: 0px;
+        }
+      }
+      @media (min-width: 768px) {
+        .label {
+          margin-inline-start: 1.25rem;
+        }
+      }
+      @media (min-width: 768px) {
+        .label {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+      &.active {
+        --tw-bg-opacity: 1;
+        background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
   .md\:show-scrollbar::-webkit-scrollbar {
     display: initial;
   }
@@ -3214,12 +3368,12 @@ header.header .search input[type="text"]:focus {
     width: 20rem !important;
   }
 
-  .md\:w-\[280px\] {
-    width: 280px !important;
-  }
-
   .md\:w-\[420px\] {
     width: 420px !important;
+  }
+
+  .md\:w-0 {
+    width: 0px !important;
   }
 
   .md\:grid-cols-3 {
@@ -3293,10 +3447,6 @@ header.header .search input[type="text"]:focus {
 
   .lg\:w-96 {
     width: 24rem !important;
-  }
-
-  .lg\:w-\[340px\] {
-    width: 340px !important;
   }
 
   .lg\:w-\[400px\] {

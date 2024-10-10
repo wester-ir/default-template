@@ -1,4 +1,4 @@
-<div class="md:w-[280px] lg:w-[340px]  md:block">
+<div class="account-sidebar">
     <div class="border border-neutral-200 rounded-lg overflow-hidden">
         <div class="p-5">
             <div class="flex items-center">
@@ -29,35 +29,35 @@
         </div>
 
         <div class="border-t border-neutral-200">
-            <ul class="divide-y divide-neutral-200">
+            <ul class="navigation">
                 <li>
-                    <a href="{{ route('client.account.index') }}" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                    <a href="{{ route('client.account.index') }}" class="item {{ request()->routeIs('client.account.index') ? 'active' : null }}">
                         <i class="fi fi-rr-home flex"></i>
-                        <span class="ms-5">داشبورد</span>
+                        <span class="label">داشبورد</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('client.account.orders.index') }}" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                    <a href="{{ route('client.account.orders.index') }}" class="item {{ request()->routeIs('client.account.orders.*') ? 'active' : null }}">
                         <i class="fi fi-rr-shopping-bag flex"></i>
-                        <span class="ms-5">سفارش ها</span>
+                        <span class="label">سفارش‌ها</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('client.account.addresses.index') }}" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                    <a href="{{ route('client.account.addresses.index') }}" class="item {{ request()->routeIs('client.account.addresses.index') ? 'active' : null }}">
                         <i class="fi fi-rr-address-book flex"></i>
-                        <span class="ms-5">آدرس ها</span>
+                        <span class="label">آدرس‌ها</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('client.account.favorites.index') }}" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                    <a href="{{ route('client.account.favorites.index') }}" class="item {{ request()->routeIs('client.account.favorites.index') ? 'active' : null }}">
                         <i class="fi fi-rr-heart flex"></i>
-                        <span class="ms-5">مورد علاقه</span>
+                        <span class="label">علایق</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('client.account.notifications.index') }}" class="flex items-center px-5 py-3 hover:bg-neutral-50">
+                    <a href="{{ route('client.account.notifications.index') }}" class="item {{ request()->routeIs('client.account.notifications.index') ? 'active' : null }}">
                         <i class="fi fi-rr-bell flex"></i>
-                        <span class="ms-5">اعلان ها</span>
+                        <span class="label">اعلان</span>
 
                         @if ($unreadNotifications)
                             <span class="badge badge-danger mr-auto -ml-2">{{ $unreadNotifications > 100 ? '+100' : $unreadNotifications }}</span>
@@ -65,13 +65,10 @@
                     </a>
                 </li>
                 <li>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button href="#" class="flex items-center px-5 py-3 hover:bg-neutral-50">
-                            <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>
-                            <span class="ms-5">خروج</span>
-                        </button>
-                    </form>
+                    <button href="#" class="item" onclick="document.getElementById('logout-form').submit();">
+                        <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>
+                        <span class="label">خروج</span>
+                    </button>
                 </li>
             </ul>
         </div>

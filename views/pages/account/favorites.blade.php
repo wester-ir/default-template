@@ -20,9 +20,13 @@
                             @foreach ($products as $product)
                                 <a href="{{ route('client.product.index', $product) }}" class="block">
                                     <div>
-                                        <img src="{{ $product->image->url['thumbnail'] }}" class="rounded-lg w-full">
+                                        @if ($product->image)
+                                            <img src="{{ $product->image->url['thumbnail'] }}" class="rounded-lg w-full">
+                                        @else
+                                            <div class="bg-neutral-100 w-full aspect-square rounded-md"></div>
+                                        @endif
                                     </div>
-                                    <div class="text-sm mt-2">{{ $product->title }}</div>
+                                    <div class="text-sm text-center mt-2">{{ $product->title }}</div>
                                 </a>
                             @endforeach
                         </div>
