@@ -1106,10 +1106,6 @@ video {
   width: 100vw !important;
 }
 
-.w-0 {
-  width: 0px !important;
-}
-
 .min-w-\[8rem\] {
   min-width: 8rem !important;
 }
@@ -1651,6 +1647,10 @@ video {
   font-size: 15px !important;
 }
 
+.text-\[28px\] {
+  font-size: 28px !important;
+}
+
 .text-lg {
   font-size: 1.125rem !important;
   line-height: 1.75rem !important;
@@ -1669,14 +1669,6 @@ video {
 .text-xs {
   font-size: 0.75rem !important;
   line-height: 1rem !important;
-}
-
-.text-\[25px\] {
-  font-size: 25px !important;
-}
-
-.text-\[28px\] {
-  font-size: 28px !important;
 }
 
 .font-bold {
@@ -2687,36 +2679,44 @@ header.header {
   justify-content: space-between;
 }
 
-header.header .search input[type="text"] {
+header.header .search {
+  display: flex;
   height: 2.5rem;
   width: 10rem;
+  align-items: center;
   border-radius: 9999px;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-header.header .search input[type="text"]:focus {
+header.header .search:focus {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (min-width: 640px) {
-  header.header .search input[type="text"] {
+  header.header .search {
     width: 16rem;
   }
 }
 
 @media (min-width: 768px) {
-  header.header .search input[type="text"] {
-    width: 410px;
+  header.header .search {
+    width: 400px;
   }
+}
+
+header.header .search input[type="text"] {
+  width: 100%;
+  border-width: 0px;
+  background-color: transparent;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {
@@ -3360,6 +3360,10 @@ header.header .search input[type="text"]:focus {
     display: none !important;
   }
 
+  .md\:w-0 {
+    width: 0px !important;
+  }
+
   .md\:w-48 {
     width: 12rem !important;
   }
@@ -3370,10 +3374,6 @@ header.header .search input[type="text"]:focus {
 
   .md\:w-\[420px\] {
     width: 420px !important;
-  }
-
-  .md\:w-0 {
-    width: 0px !important;
   }
 
   .md\:grid-cols-3 {

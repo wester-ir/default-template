@@ -1,7 +1,7 @@
 @if (auth()->check())
     <div class="flex">
         <div data-role="dropdown" class="relative">
-            <button data-role="dropdown-trigger" type="button" data-is-active="false" class="flex items-center btn text-sm font-normal data-[is-active=true]:bg-white">
+            <button data-role="dropdown-trigger" type="button" data-is-active="false" class="flex items-center btn px-2 text-sm font-normal data-[is-active=true]:bg-white">
                 <span class="hidden md:block" data-role="users-full-name">{{ auth()->user()->full_name ?? 'کاربر' }}</span>
                 <i class="fi fi-rr-user flex md:hidden text-2xl"></i>
 
@@ -59,12 +59,12 @@
         </div>
     </div>
 @else
-    <div class="hidden md:block">
+    <div class="hidden md:block mr-3 whitespace-nowrap">
         <a href="{{ route('auth.login') }}" class="ml-3 text-green-600">وارد شوید</a>
-        <a href="{{ route('auth.login') }}" class="btn btn-success px-5 rounded-full">ثبت نام</a>
+        <a href="{{ route('auth.login') }}" class="btn btn-success px-4 rounded-full">ثبت نام</a>
     </div>
 
-    <div class="block md:hidden">
+    <div class="block md:hidden mr-3">
         <a href="{{ route('auth.login') }}">
             <i class="fi fi-rr-user flex text-2xl"></i>
         </a>

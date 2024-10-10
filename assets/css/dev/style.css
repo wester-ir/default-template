@@ -73,8 +73,12 @@ header.header {
     @apply flex items-center justify-between;
 }
 
+header.header .search {
+    @apply flex items-center w-40 sm:w-64 md:w-[400px] h-10 rounded-full border border-neutral-300 focus:shadow transition-colors;
+}
+
 header.header .search input[type="text"] {
-    @apply w-40 sm:w-64 md:w-[410px] h-10 px-4 rounded-full border border-neutral-300 focus:shadow transition-colors;
+    @apply bg-transparent w-full border-0 px-4;
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {
