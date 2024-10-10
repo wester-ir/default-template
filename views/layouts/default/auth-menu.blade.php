@@ -36,12 +36,14 @@
                         @endif
                     </a>
 
-                    <a href="{{ route('admin.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
-                        <div class="flex items-center justify-center w-7 ml-3">
-                            <div class="bg-red-500 rounded-full w-2 h-2 ring-4 ring-red-100"></div>
-                        </div>
-                        <span class="text-red-500">مدیریت</span>
-                    </a>
+                    @if (auth()->user()->is_staff)
+                        <a href="{{ route('admin.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                            <div class="flex items-center justify-center w-7 ml-3">
+                                <div class="bg-red-500 rounded-full w-2 h-2 ring-4 ring-red-100"></div>
+                            </div>
+                            <span class="text-red-500">مدیریت</span>
+                        </a>
+                    @endif
 
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
