@@ -10,7 +10,7 @@
                         <h2>جدیدترین ها</h2>
                     </div>
 
-                    <a href="{{ route('client.latest', ['page' => $latestProducts->hasMorePages() ? $latestProducts->currentPage() + 1 : null]) }}" class="flex items-center border border-green-500 text-green-500 hover:text-white hover:bg-green-500 py-[6px] px-4 rounded-full transition-colors">
+                    <a href="{{ route('client.latest', ['page' => get_next_page_number($latestProducts)]) }}" class="flex items-center border border-green-500 text-green-500 hover:text-white hover:bg-green-500 py-[6px] px-4 rounded-full transition-colors">
                         <span>بیشتر</span>
                         <i class="fi fi-rr-angle-small-left text-lg flex -ml-[6px] mr-1"></i>
                     </a>
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="flex justify-center mt-10">
-                    <a href="{{ route('client.latest', ['page' => $latestProducts->hasMorePages() ? $latestProducts->currentPage() + 1 : null]) }}" class="btn btn-success btn-lg rounded-full">نمایش همه محصولات</a>
+                    <a href="{{ route('client.latest', ['page' => get_next_page_number($latestProducts)]) }}" class="btn btn-success btn-lg rounded-full">نمایش همه محصولات</a>
                 </div>
             </section>
 
@@ -34,7 +34,7 @@
                         <h2>پرفروش ترین ها</h2>
                     </div>
 
-                    <a href="{{ route('client.best-selling', ['page' => $bestSellingProducts->hasMorePages() ? $bestSellingProducts->currentPage() + 1 : null]) }}" class="flex items-center border border-green-500 text-green-500 hover:text-white hover:bg-green-500 py-[6px] px-4 rounded-full transition-colors">
+                    <a href="{{ route('client.best-selling', ['page' => get_next_page_number($bestSellingProducts)]) }}" class="flex items-center border border-green-500 text-green-500 hover:text-white hover:bg-green-500 py-[6px] px-4 rounded-full transition-colors">
                         <span>بیشتر</span>
                         <i class="fi fi-rr-angle-small-left text-lg flex -ml-[6px] mr-1"></i>
                     </a>
