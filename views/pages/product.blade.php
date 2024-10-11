@@ -82,9 +82,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="bg-neutral-200 flex items-center justify-center aspect-square rounded-lg">
-                        بدون عکس
-                    </div>
+                    <img src="{{ $image->url['medium'] ?? template_asset('assets/img/no-image.jpg') }}" class="w-full" alt="{{ $product->title }}">
                 @endif
             </div>
 
@@ -109,7 +107,7 @@
                     <span>کد محصول:</span>
                     <span class="text-neutral-700">{{ $product->sku }}</span>
                 </div>
-                
+
                 <!-- Brands -->
                 @if (! $product->brands->isEmpty())
                     <div class="text-neutral-400 text-lg mt-2">

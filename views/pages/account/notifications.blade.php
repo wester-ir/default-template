@@ -51,7 +51,7 @@
                                                         title="{{ $item->meta['title'] }}" alt="{{ $item->meta['title'] }}">
                                                 </a>
                                             @else
-                                                <div class="bg-neutral-100 w-24 h-24 rounded-md"></div>
+                                                <img src="{{ template_asset('assets/img/no-image.jpg') }}" class="w-16 h-16 object-cover rounded-md">
                                             @endif
                                         @endforeach
                                     </div>

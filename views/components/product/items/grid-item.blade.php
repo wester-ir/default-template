@@ -5,12 +5,9 @@
 <a href="{{ $product->url }}" class="flex flex-col h-full bg-white border border-neutral-200 hover:shadow-md hover:shadow-neutral-100 rounded-xl transition-all overflow-hidden">
     <div class="flex flex-col relative flex-1 m-2">
         @include('templates.default.views.components.product.items.partials.tags')
-        @if ($product->image)
-            <img src="{{ $product->image['url']['thumbnail'] }}" alt="{{ $product->title }}" class="w-full h-60 object-cover rounded-lg">
-        @else
-            <div class="bg-neutral-200 flex items-center justify-center h-60 rounded-lg">بدون عکس</div>
-        @endif
-    
+
+        <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full h-60 object-cover rounded-lg">
+
         <div class="flex flex-col flex-1 mt-3">
             <!-- Title -->
             <div class="text-sm">{{ $product->title }}</div>
@@ -30,7 +27,7 @@
                         </div>
                     @endif
                 </div>
-                
+
                 <!-- Show Quantity -->
                 @if (! $product->is_quantity_unlimited && $showQuantitySettings['status'] && $showQuantitySettings['limit'] >= $product->quantity && $product->quantity > 0)
                     <div class="text-sm text-red-500 mt-3">

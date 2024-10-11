@@ -41,7 +41,7 @@
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->cancelled }}</span>
                                 @endif
                             </a>
-                            
+
                             <a href="{{ route('client.account.orders.index', ['type' => 'returned']) }}" data-active="{{ var_export(query('type') === 'returned') }}" class="py-2 px-3">
                                 <span>مرجوع شده</span>
                                 @if ($orderStats->returned !== 0)
@@ -126,7 +126,7 @@
                                                 @if ($item->relationLoaded('combination') && $item->combination->relationLoaded('image') && $item->combination->image)
                                                     <img src="{{ $item->combination->image['url']['thumbnail'] }}" class="w-24 h-24 object-cover rounded-md" title="{{ $item->meta['title'] }}" alt="{{ $item->meta['title'] }}">
                                                 @else
-                                                    <div class="bg-neutral-100 w-24 h-24 rounded-md"></div>
+                                                    <img src="{{ template_asset('assets/img/no-image.jpg') }}" class="w-24 h-24 object-cover rounded-md">
                                                 @endif
                                             </div>
                                         @endforeach
