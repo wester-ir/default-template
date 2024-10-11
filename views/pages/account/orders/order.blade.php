@@ -152,7 +152,7 @@
                         <div class="flex items-center justify-between md:justify-start">
                             <span class="font-light text-neutral-400">ارسال توسط</span>
                             <span class="font-medium text-neutral-600 mr-2">
-                                {{ $order->meta['courier']['name'] }}
+                                {{ $order->meta['courier']['name'] }} ({{ $order->meta['courier']['type'] }})
                             </span>
                         </div>
 
