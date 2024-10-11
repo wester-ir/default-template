@@ -41,7 +41,7 @@
                 <div class="border border-neutral-200 rounded-lg p-5">
                     <div class="flex items-center justify-between">
                         <h3>آدرس</h3>
-                        
+
                         <a href="{{ route('client.account.addresses.index') }}" class="text-sm">مدیریت آدرس ها</a>
                     </div>
                     <div class="text-sm font-light mt-1">لطفاً آدرس مورد نظر را وارد کنید.</div>
@@ -60,11 +60,11 @@
                                         </div>
                                         <div class="flex items-center text-sm mt-1">
                                             <i class="fi fi-rr-phone-flip flex"></i>
-                                            <span class="mr-3">{{ $address->is_self ? auth()->user()->number : $address->number }}</span>    
+                                            <span class="mr-3">{{ $address->is_self ? auth()->user()->number : $address->number }}</span>
                                         </div>
                                         <div class="flex items-center text-sm mt-1">
                                             <i class="fi fi-rr-user flex"></i>
-                                            <span class="mr-3">{{ $address->is_self ? auth()->user()->full_name : $address->full_name }}</span>    
+                                            <span class="mr-3">{{ $address->is_self ? auth()->user()->full_name : $address->full_name }}</span>
                                         </div>
                                     </div>
                                 </label>
@@ -130,7 +130,7 @@
 
                             <div class="form-control">
                                 <label for="number">شماره موبایل *</label>
-                                <input id="number" type="text" name="address[number]" class="default">
+                                <input id="number" type="text" name="address[number]" class="default ltr-direction">
                             </div>
                         </div>
                     </div>
@@ -332,7 +332,7 @@
             lockElem(btn);
 
             var addressId = $('input[name="address_id"]:checked').val();
-            
+
             if (addressId === '0') {
                 addressId = null;
             }
