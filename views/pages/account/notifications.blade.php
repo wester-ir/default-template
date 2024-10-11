@@ -20,11 +20,12 @@
                             @php
                                 if ($notification->type_name === 'order_paid') {
                                     $icon = 'checklist.svg';
-                                    $title = "سفارش <div class=\"ltr-direction mx-1\">#{$notification->order->id}</div> با موفقیت پرداخت شد.";
+                                    $title = "<div class=\"flex items-center\">سفارش <div class=\"ltr-direction mx-1\">#{$notification->order->id}</div></div> <div>با موفقیت پرداخت شد.</div>";
                                     $message = 'کد رهگیری مرسوله پس از ارسال سفارش برایتان فرستاده خواهد شد.';
                                 } elseif ($notification->type_name === 'order_shipped') {
                                     $icon = 'order-shipped.svg';
-                                    $title = "سفارش <div class=\"ltr-direction mx-1\">#{$notification->order->id}</div> تکمیل و ارسال شد.";
+                                    $title = "<div class=\"flex items-center\">سفارش <div class=\"ltr-direction mx-1\">#{$notification->order->id}</div></div> <div>تکمیل و ارسال شد.</div>";
+
                                     if ($trackingNumber = $notification->order->address->tracking_number) {
                                         $message = 'کد رهگیری مرسوله: '. $trackingNumber;
                                     } else {
@@ -37,7 +38,7 @@
                                     <img src="{{ template_asset('/assets/img/icons/'. $icon) }}" class="w-6 h-6">
                                 </div>
                                 <div class="flex-1 mr-3">
-                                    <div class="flex items-center font-medium">{!! $title !!}</div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center font-medium">{!! $title !!}</div>
                                     @if ($message)
                                         <div class="text-neutral-500 mt-2 font-light text-sm">{{ $message }}</div>
                                     @endif

@@ -3293,6 +3293,16 @@ header.header .search input[type="text"] {
   --tw-space-x-reverse: 1 !important;
 }
 
+@media (min-width: 480px) {
+  .xs\:flex-row {
+    flex-direction: row !important;
+  }
+
+  .xs\:items-center {
+    align-items: center !important;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:mr-2 {
     margin-right: 0.5rem !important;
