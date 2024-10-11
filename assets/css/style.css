@@ -3484,6 +3484,11 @@ header.header .search input[type="text"] {
     margin-right: calc(2rem * var(--tw-space-x-reverse)) !important;
     margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse))) !important;
   }
+
+  .lg\:text-base {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important;
+  }
 }
 
 @media (min-width: 1280px) {
