@@ -1614,6 +1614,11 @@ video {
   padding-bottom: 1px !important;
 }
 
+.py-\[6px\] {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
 .pt-0 {
   padding-top: 0px !important;
 }
@@ -3342,6 +3347,10 @@ header.header .search input[type="text"] {
 }
 
 @media (min-width: 768px) {
+  .md\:m-2 {
+    margin: 0.5rem !important;
+  }
+
   .md\:ml-5 {
     margin-left: 1.25rem !important;
   }

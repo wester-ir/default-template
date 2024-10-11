@@ -2,11 +2,11 @@
     $showQuantitySettings = settingService('product')['show_quantity'];
 @endphp
 
-<a href="{{ $product->url }}" class="flex flex-col h-full bg-white border border-neutral-200 hover:shadow-md hover:shadow-neutral-100 rounded-xl transition-all overflow-hidden">
-    <div class="flex flex-col relative flex-1 m-2">
+<a href="{{ $product->url }}" class="flex flex-col h-full bg-white md:border border-neutral-200 hover:shadow-md hover:shadow-neutral-100 rounded-xl transition-all overflow-hidden">
+    <div class="flex flex-col relative flex-1 md:m-2">
         @include('templates.default.views.components.product.items.partials.tags')
 
-        <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full h-60 object-cover rounded-lg">
+        <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full aspect-square object-cover rounded-lg">
 
         <div class="flex flex-col flex-1 mt-3">
             <!-- Title -->

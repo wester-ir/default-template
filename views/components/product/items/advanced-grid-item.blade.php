@@ -1,5 +1,6 @@
 @php
     $imageHeight ??= 240;
+    $squareImage ??= false;
     $showQuantitySettings = settingService('product')['show_quantity'];
 @endphp
 
@@ -7,7 +8,7 @@
     <div class="flex flex-col relative flex-1 m-3">
         @include('templates.default.views.components.product.items.partials.tags')
 
-        <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full object-cover rounded-md" style="height: {{ $imageHeight }}px;">
+        <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full @if ($squareImage) aspect-square @endif object-cover rounded-md" @if (! $squareImage) style="height: {{ $imageHeight }}px;" @endif>
 
         <div class="flex flex-col flex-1 mt-3">
             <div class="text-sm">{{ $product->title }}</div>

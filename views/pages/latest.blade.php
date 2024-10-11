@@ -7,9 +7,9 @@
         <h1 class="h2">جدیدترین محصولات</h1>
 
         @if (! $products->isEmpty())
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5">
                 @foreach ($products as $product)
-                    @include('templates.default.views.components.product.items.advanced-grid-item')
+                    @include('templates.default.views.components.product.items.grid-item')
                 @endforeach
             </div>
         @else
