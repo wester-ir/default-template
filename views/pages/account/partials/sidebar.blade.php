@@ -64,12 +64,12 @@
                         @endif
                     </a>
                 </li>
-                <li>
-                    <button href="#" class="item" onclick="document.getElementById('logout-form').submit();">
-                        <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>
-                        <span class="label">خروج</span>
-                    </button>
-                </li>
+{{--                <li>--}}
+{{--                    <button href="#" class="item" onclick="document.getElementById('logout-form').submit();">--}}
+{{--                        <span class="w-2 h-2 ring ring-red-100 rounded-full bg-red-500"></span>--}}
+{{--                        <span class="label">خروج</span>--}}
+{{--                    </button>--}}
+{{--                </li>--}}
             </ul>
         </div>
     </div>
