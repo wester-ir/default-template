@@ -74,11 +74,11 @@ header.header {
 }
 
 header.header .search {
-    @apply flex items-center w-40 sm:w-64 md:w-[400px] h-10 rounded-full border border-neutral-300 focus:shadow transition-colors;
+    @apply flex items-center relative;
 }
 
 header.header .search input[type="text"] {
-    @apply bg-transparent w-full border-0 px-4;
+    @apply bg-white w-40 px-4 sm:w-64 md:w-[400px] h-10 rounded-full border border-neutral-300 focus:shadow transition-colors;
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {

@@ -658,8 +658,8 @@ video {
   z-index: 10000 !important;
 }
 
-.m-2 {
-  margin: 0.5rem !important;
+.z-20 {
+  z-index: 20 !important;
 }
 
 .m-3 {
@@ -846,6 +846,10 @@ video {
   margin-top: auto !important;
 }
 
+.ml-4 {
+  margin-left: 1rem !important;
+}
+
 .block {
   display: block !important;
 }
@@ -920,10 +924,6 @@ video {
 
 .h-6 {
   height: 1.5rem !important;
-}
-
-.h-60 {
-  height: 15rem !important;
 }
 
 .h-7 {
@@ -1609,14 +1609,14 @@ video {
   padding-bottom: 1.25rem !important;
 }
 
-.py-px {
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
-}
-
 .py-\[6px\] {
   padding-top: 6px !important;
   padding-bottom: 6px !important;
+}
+
+.py-px {
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
 }
 
 .pt-0 {
@@ -2685,43 +2685,43 @@ header.header {
 }
 
 header.header .search {
+  position: relative;
   display: flex;
+  align-items: center;
+}
+
+header.header .search input[type="text"] {
   height: 2.5rem;
   width: 10rem;
-  align-items: center;
   border-radius: 9999px;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-header.header .search:focus {
+header.header .search input[type="text"]:focus {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (min-width: 640px) {
-  header.header .search {
+  header.header .search input[type="text"] {
     width: 16rem;
   }
 }
 
 @media (min-width: 768px) {
-  header.header .search {
+  header.header .search input[type="text"] {
     width: 400px;
   }
-}
-
-header.header .search input[type="text"] {
-  width: 100%;
-  border-width: 0px;
-  background-color: transparent;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {
@@ -3296,16 +3296,6 @@ header.header .search input[type="text"] {
 
 :is([dir="rtl"] .rtl\:space-x-reverse) > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1 !important;
-}
-
-@media (min-width: 480px) {
-  .xs\:flex-row {
-    flex-direction: row !important;
-  }
-
-  .xs\:items-center {
-    align-items: center !important;
-  }
 }
 
 @media (min-width: 640px) {
