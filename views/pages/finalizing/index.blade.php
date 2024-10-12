@@ -27,7 +27,7 @@
 
                         <div class="mt-5">
                             <div id="code" data-role="discount-form" class="flex mt-2 {{ $cart->has_discount ? 'hidden' : '' }}">
-                                <input data-role="discount-code" type="text" class="default rounded-e-none flex-1 font-latin uppercase ltr-direction" name="discount_code" value="">
+                                <input data-role="discount-code" type="text" class="default rounded-l-none flex-1 font-latin uppercase ltr-direction" name="discount_code" value="">
                                 <button type="button" data-role="apply-discount-btn" class="btn btn-default rounded-s-none -ms-px text-sm">ثبت کد تخفیف</button>
                             </div>
                             <div data-role="discount-success" class="flex mt-2 text-green-500 {{ ! $cart->has_discount ? 'hidden' : '' }}">
