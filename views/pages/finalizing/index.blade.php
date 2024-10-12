@@ -158,7 +158,7 @@
                                 @foreach ($couriers as $courier)
                                     <div class="flex items-start">
                                         <div class="pt-1">
-                                            <input type="radio" name="courier_id" value="{{ $courier->id }}" checked>
+                                            <input type="radio" name="courier_id" value="{{ $courier->id }}" @checked($courier->is_default || $couriers->count() === 1)>
                                         </div>
                                         <div class="flex-1 ms-3">
                                             <div class="flex justify-between">
