@@ -4,7 +4,7 @@ input[type="number"].default,
 select.default,
 textarea.default,
 .input.default {
-    @apply outline-none shadow-sm border border-gray-300 focus:border-neutral-500 focus:z-50 rounded-lg px-3 h-[38px] w-full disabled:bg-neutral-50;
+    @apply outline-none shadow-sm border border-gray-300 focus:border-neutral-500 focus:z-[9] rounded-lg px-3 h-[38px] w-full disabled:bg-neutral-50;
 }
 
 input[type="text"][data-danger],

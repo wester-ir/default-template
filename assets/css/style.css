@@ -646,6 +646,10 @@ video {
   z-index: 10 !important;
 }
 
+.z-20 {
+  z-index: 20 !important;
+}
+
 .z-50 {
   z-index: 50 !important;
 }
@@ -656,10 +660,6 @@ video {
 
 .z-\[10000\] {
   z-index: 10000 !important;
-}
-
-.z-20 {
-  z-index: 20 !important;
 }
 
 .m-3 {
@@ -758,6 +758,10 @@ video {
   margin-left: 0.75rem !important;
 }
 
+.ml-4 {
+  margin-left: 1rem !important;
+}
+
 .mr-1 {
   margin-right: 0.25rem !important;
 }
@@ -844,10 +848,6 @@ video {
 
 .mt-auto {
   margin-top: auto !important;
-}
-
-.ml-4 {
-  margin-left: 1rem !important;
 }
 
 .block {
@@ -1374,6 +1374,11 @@ video {
   border-end-end-radius: 0px !important;
 }
 
+.rounded-l-none {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
 .rounded-s-md {
   border-start-start-radius: 0.375rem !important;
   border-end-start-radius: 0.375rem !important;
@@ -1382,11 +1387,6 @@ video {
 .rounded-s-none {
   border-start-start-radius: 0px !important;
   border-end-start-radius: 0px !important;
-}
-
-.rounded-l-none {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
 }
 
 .border {
@@ -2210,7 +2210,7 @@ input[type="number"].default:focus,
 select.default:focus,
 textarea.default:focus,
 .input.default:focus {
-  z-index: 50;
+  z-index: 9;
   --tw-border-opacity: 1;
   border-color: rgb(115 115 115 / var(--tw-border-opacity));
 }
