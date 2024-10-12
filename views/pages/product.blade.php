@@ -68,14 +68,14 @@
                         <div class="swiper-pagination"></div>
                     </div>
 
-                    <div class="flex border border-neutral-200 rounded-lg p-1">
+                    <div class="border border-neutral-200 rounded-lg p-1">
                         <div thumbsSlider="" class="swiper product-image-thumb-slider">
                             <div class="swiper-wrapper">
                                 @foreach ($product->images as $image)
                                     <div class="swiper-slide">
                                         <img
                                             src="{{ $image->url['thumbnail'] }}"
-                                            class="object-cover rounded-md w-20 h-20" alt="{{ $product->title }}">
+                                            class="object-cover rounded-md w-full h-20" alt="{{ $product->title }}">
                                     </div>
                                 @endforeach
                             </div>
@@ -187,6 +187,7 @@
             var thumbSwiper = new Swiper(".product-image-thumb-slider", {
                 spaceBetween: 4,
                 slidesPerView: 4,
+                freeMode: true,
                 watchSlidesProgress: true,
             });
 
