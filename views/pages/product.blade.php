@@ -75,7 +75,7 @@
                                     <div class="swiper-slide">
                                         <img
                                             src="{{ $image->url['thumbnail'] }}"
-                                            class="object-cover rounded-md w-full h-20" alt="{{ $product->title }}">
+                                            class="object-cover rounded-md w-full h-20 cursor-pointer" alt="{{ $product->title }}">
                                     </div>
                                 @endforeach
                             </div>
