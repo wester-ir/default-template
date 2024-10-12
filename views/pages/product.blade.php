@@ -57,8 +57,8 @@
                     <div class="swiper product-image-slider">
                         <div class="swiper-wrapper rounded-lg">
                             @foreach ($product->images as $image)
-                                <div class="swiper-slide">
-                                    <img src="{{ $image->url['medium'] }}" class="w-full" alt="{{ $product->title }}">
+                                <div class="swiper-slide h-auto">
+                                    <img src="{{ $image->url['medium'] }}" class="w-full object-cover h-full" alt="{{ $product->title }}">
                                 </div>
                             @endforeach
                         </div>
