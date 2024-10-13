@@ -216,3 +216,11 @@ const elements = {
         $('[data-role="items-total-quantity-count"]').html(quantity);
     }
 };
+
+function scrollToTab(tabId) {
+    const tab = document.getElementById(tabId);
+
+    if (tab) {
+        tab.scrollIntoView({ inline: 'start' });
+    }
+}

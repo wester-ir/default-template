@@ -17,32 +17,32 @@
 
                     <div class="mt-5 -mx-5 -mb-5">
                         <div class="orders-tabs flex items-center border-b border-neutral-200 px-5 font-light text-sm md:text-base overflow-x-auto whitespace-nowrap hide-scrollbar">
-                            <a href="{{ route('client.account.orders.index', ['type' => 'pending']) }}" data-active="{{ var_export(query('type', 'pending') === 'pending') }}" class="py-2 px-3">
+                            <a id="tab-pending" href="{{ route('client.account.orders.index', ['type' => 'pending']) }}" data-active="{{ as_string($type === 'pending') }}" class="py-2 px-3">
                                 <span>در انتظار پرداخت</span>
                                 @if ($orderStats->pending !== 0)
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->pending }}</span>
                                 @endif
                             </a>
-                            <a href="{{ route('client.account.orders.index', ['type' => 'paid']) }}" data-active="{{ var_export(query('type') === 'paid') }}" class="py-2 px-3">
+                            <a id="tab-paid" href="{{ route('client.account.orders.index', ['type' => 'paid']) }}" data-active="{{ as_string($type === 'paid') }}" class="py-2 px-3">
                                 <span>در حال پردازش</span>
                                 @if ($orderStats->paid !== 0)
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->paid }}</span>
                                 @endif
                             </a>
-                            <a href="{{ route('client.account.orders.index', ['type' => 'shipped']) }}" data-active="{{ var_export(query('type') === 'shipped') }}" class="py-2 px-3">
+                            <a id="tab-shipped" href="{{ route('client.account.orders.index', ['type' => 'shipped']) }}" data-active="{{ as_string($type === 'shipped') }}" class="py-2 px-3">
                                 <span>ارسال شده</span>
                                 @if ($orderStats->shipped !== 0)
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->shipped }}</span>
                                 @endif
                             </a>
-                            <a href="{{ route('client.account.orders.index', ['type' => 'cancelled']) }}" data-active="{{ var_export(query('type') === 'cancelled') }}" class="py-2 px-3">
+                            <a id="tab-cancelled" href="{{ route('client.account.orders.index', ['type' => 'cancelled']) }}" data-active="{{ as_string($type === 'cancelled') }}" class="py-2 px-3">
                                 <span>لغو شده</span>
                                 @if ($orderStats->cancelled !== 0)
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->cancelled }}</span>
                                 @endif
                             </a>
 
-                            <a href="{{ route('client.account.orders.index', ['type' => 'returned']) }}" data-active="{{ var_export(query('type') === 'returned') }}" class="py-2 px-3">
+                            <a id="tab-returned" href="{{ route('client.account.orders.index', ['type' => 'returned']) }}" data-active="{{ as_string($type === 'returned') }}" class="py-2 px-3">
                                 <span>مرجوع شده</span>
                                 @if ($orderStats->returned !== 0)
                                     <span class="badge badge-secondary py-px mr-1">{{ $orderStats->returned }}</span>
@@ -144,3 +144,9 @@
         </div>
     </div>
 @endsection
+
+@push('bottom-scripts')
+    <script>
+        scrollToTab('tab-{{ $type }}');
+    </script>
+@endpush
