@@ -221,6 +221,6 @@ function scrollToTab(tabId) {
     const tab = document.getElementById(tabId);
 
     if (tab) {
-        tab.scrollIntoView({ inline: 'start' });
+        tab.scrollIntoView({ block: 'nearest', inline: 'start' });
     }
 }
