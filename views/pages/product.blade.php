@@ -58,7 +58,9 @@
                         <div class="swiper-wrapper rounded-lg">
                             @foreach ($product->images as $image)
                                 <div class="swiper-slide h-auto">
-                                    <img src="{{ $image->url['medium'] }}" class="w-full object-cover h-full" alt="{{ $product->title }}">
+                                    <div class="swiper-zoom-container">
+                                        <img src="{{ $image->url['medium'] }}" class="w-full object-cover h-full" alt="{{ $product->title }}">
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -192,7 +194,7 @@
             });
 
             var swiper = new Swiper(".product-image-slider", {
-                cssMode: true,
+                zoom: true,
                 pagination: {
                     el: ".swiper-pagination",
                 },
