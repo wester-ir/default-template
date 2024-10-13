@@ -144,3 +144,9 @@
         </div>
     </div>
 @endsection
+
+@push('bottom-scripts')
+    <script>
+        scrollToTab('tab-{{ $type }}');
+    </script>
+@endpush
