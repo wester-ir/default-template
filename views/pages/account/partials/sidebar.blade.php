@@ -5,7 +5,7 @@
                 <img src="{{ template_asset('assets/img/user.png') }}" class="w-12 h-12 rounded-full shadow">
                 <div class="flex-1 ms-5">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium" data-role="users-full-name">{{ auth()->user()->full_name }}</span>
+                        <span class="font-medium" data-role="users-full-name">{{ auth()->user()->full_name ?: 'بدون نام' }}</span>
 
                         <button id="open-edit-name-modal">
                             <span class="icon icon-edit bg-neutral-500 hover:bg-sky-500 transition-colors"></span>
