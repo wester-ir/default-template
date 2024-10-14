@@ -16,7 +16,7 @@
                     <p class="text-center text-sm mt-2">شماره موبایل خود را وارد کنید.</p>
                 </div>
 
-                <form action="{{ route('auth.login') }}" method="POST" class="mt-5 form">
+                <form action="{{ route('auth.login') }}" method="POST" class="mt-5 form" onsubmit="return form.lock(this)">
                     @csrf
 
                     <div class="form-control">

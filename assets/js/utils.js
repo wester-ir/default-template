@@ -184,6 +184,21 @@ const form = window.form = {
                 toast.error('عملیات مورد نظر غیرمجاز می باشد.');
             break;
         }
+    },
+    lock(elem) {
+        var isDisabled = elem.getAttribute('disabled');
+
+        if (isDisabled) {
+            return false;
+        }
+
+        elem.setAttribute('disabled', 'disabled');
+
+        elem.querySelectorAll('.btn').forEach((btn) => {
+            btn.classList.add('disabled');
+        });
+
+        return true;
     }
 };
 

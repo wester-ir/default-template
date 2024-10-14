@@ -16,7 +16,7 @@
                     <p class="text-center text-sm mt-2">رمز عبور خود را وارد کنید.</p>
                 </div>
 
-                <form action="{{ route('auth.login.password') }}" method="POST" class="mt-5 form">
+                <form action="{{ route('auth.login.password') }}" method="POST" class="mt-5 form" onsubmit="return form.lock(this)">
                     @csrf
                     <input type="hidden" name="number" value="{{ $number }}">
 

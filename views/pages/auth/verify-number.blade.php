@@ -18,7 +18,7 @@
                     <div class="flex justify-center text-sm mt-3 mb-2 divide-x-2 divide-x-reverse font-light">
                         <a href="{{ route('auth.login') }}" class="px-3 link">تغییر شماره</a>
 
-                        <form class="px-3 select-none" action="{{ route('auth.login') }}" method="POST">
+                        <form class="px-3 select-none" action="{{ route('auth.login') }}" method="POST" onsubmit="return form.lock(this)">
                             @csrf
 
                             <input type="hidden" name="number" value="{{ $verification->number }}">
