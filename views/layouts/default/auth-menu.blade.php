@@ -12,7 +12,7 @@
                 </div>
 
                 @if ($unreadNotifications)
-                    <div class="absolute left-0 top-[14px] w-2 h-2 rounded-full bg-red-400 ring ring-red-200 animate-pulse"></div>
+                    <div class="absolute -left-[5px] top-[14px] w-2 h-2 rounded-full bg-red-400 ring ring-red-200 animate-pulse"></div>
                 @endif
             </button>
 

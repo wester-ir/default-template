@@ -598,6 +598,10 @@ video {
   position: relative !important;
 }
 
+.-left-\[5px\] {
+  left: -5px !important;
+}
+
 .-right-3 {
   right: -0.75rem !important;
 }
