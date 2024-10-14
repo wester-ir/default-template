@@ -3,7 +3,7 @@
 @inject('schemaService', 'App\Services\SchemaService')
 
 @title($product->title, false)
-@description($product->content->summary)
+@description($product->content->summary ?: $product->content->description)
 
 @push('head-scripts')
     <script type="application/ld+json">
