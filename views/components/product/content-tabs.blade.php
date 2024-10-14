@@ -33,7 +33,7 @@
 
     <!-- Full Description -->
     @if ($product->content->full_description)
-        <div class="tab-section" data-id="full_description" data-active="{{ ! $product->attributes ? 'true' : 'false' }}">
+        <div class="tab-section leading-[29px] [&>p]:mt-2 [&>p:first-child]:mt-0" data-id="full_description" data-active="{{ ! $product->attributes ? 'true' : 'false' }}">
             {!! $product->content->full_description !!}
         </div>
     @endif

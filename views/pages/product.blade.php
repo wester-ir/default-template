@@ -125,7 +125,7 @@
                 <!-- Description -->
                 @if ($product->content->description)
                     <section class="font-light mt-5">
-                        <div class="text-neutral-600 [&>ul]:ps-5 [&>ul>li]:list-disc">
+                        <div class="text-neutral-600 [&>ul]:ps-5 [&>ul>li]:list-disc leading-[29px]">
                             {!! $product->content->description !!}
                         </div>
                     </section>

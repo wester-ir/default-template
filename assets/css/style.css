@@ -1721,6 +1721,10 @@ video {
   line-height: 2 !important;
 }
 
+.leading-\[29px\] {
+  line-height: 29px !important;
+}
+
 .text-danger {
   --tw-text-opacity: 1 !important;
   color: rgb(239 68 68 / var(--tw-text-opacity)) !important;
@@ -3513,6 +3517,24 @@ header.header .search input[type="text"]:focus {
   .xl\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
+}
+
+.\[\&\>p\:first-child\]\:mt-0>p:first-child {
+  margin-top: 0px !important;
+}
+
+.\[\&\>p\]\:mt-5>p {
+  margin-top: 1.25rem !important;
+}
+
+.\[\&\>p\]\:mt-2>p {
+  margin-top: 0.5rem !important;
+}
+
+.\[\&\>p\]\:space-y-5>p > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0 !important;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse))) !important;
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse)) !important;
 }
 
 .\[\&\>ul\>li\]\:list-disc>ul>li {
