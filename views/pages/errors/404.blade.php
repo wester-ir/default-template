@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.default')
+@extends('templates.default.views.layouts.basic')
 
 @title('یافت نشد', false)
 
