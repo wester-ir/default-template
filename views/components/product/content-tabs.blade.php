@@ -54,7 +54,7 @@
 
     <!-- Sizing -->
     @if ($product->content->sizing)
-        <div class="tab-section" data-id="sizing" data-active="{{ as_string($activeTab === 'sizing') }}">
+        <div class="tab-section overflow-x-auto" data-id="sizing" data-active="{{ as_string($activeTab === 'sizing') }}">
             <table class="sizing-table">
                 <thead>
                     <tr>
