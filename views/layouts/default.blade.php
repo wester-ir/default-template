@@ -4,7 +4,7 @@
         <!-- Meta Tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         @stack('meta-tags')
         <meta property="description" content="@description">
         <meta property="og:description" content="@description">
@@ -86,7 +86,7 @@
                         <!-- Auth Menu -->
                         @include('templates.default.views.layouts.default.auth-menu')
 
-                        <a href="{{ route('client.cart.index') }}" class="relative mr-8" rel="nofollow">
+                        <a href="{{ route('client.cart.index') }}" class="relative mr-7 md:mr-8" rel="nofollow">
                             <i class="fi fi-rr-shopping-cart text-[28px]"></i>
                             <span data-role="items-total-quantity-count" class="absolute top-4 -right-3 flex items-center justify-center bg-green-500 border-2 border-neutral-100 px-2 rounded-md text-sm text-white font-light">
                                 {{ get_cart_total_quantity() }}

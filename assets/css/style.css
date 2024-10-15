@@ -786,10 +786,6 @@ video {
   margin-right: 1.25rem !important;
 }
 
-.mr-8 {
-  margin-right: 2rem !important;
-}
-
 .mr-auto {
   margin-right: auto !important;
 }
@@ -852,6 +848,14 @@ video {
 
 .mt-auto {
   margin-top: auto !important;
+}
+
+.mr-6 {
+  margin-right: 1.5rem !important;
+}
+
+.mr-7 {
+  margin-right: 1.75rem !important;
 }
 
 .block {
@@ -1717,12 +1721,12 @@ video {
   line-height: 1.75rem !important;
 }
 
-.leading-loose {
-  line-height: 2 !important;
-}
-
 .leading-\[29px\] {
   line-height: 29px !important;
+}
+
+.leading-loose {
+  line-height: 2 !important;
 }
 
 .text-danger {
@@ -3366,6 +3370,10 @@ header.header .search input[type="text"]:focus {
     margin-right: 1.25rem !important;
   }
 
+  .md\:mr-8 {
+    margin-right: 2rem !important;
+  }
+
   .md\:mt-0 {
     margin-top: 0px !important;
   }
@@ -3523,18 +3531,8 @@ header.header .search input[type="text"]:focus {
   margin-top: 0px !important;
 }
 
-.\[\&\>p\]\:mt-5>p {
-  margin-top: 1.25rem !important;
-}
-
 .\[\&\>p\]\:mt-2>p {
   margin-top: 0.5rem !important;
-}
-
-.\[\&\>p\]\:space-y-5>p > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0 !important;
-  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse))) !important;
-  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse)) !important;
 }
 
 .\[\&\>ul\>li\]\:list-disc>ul>li {
