@@ -10,15 +10,15 @@
     <title>@title</title>
 
     <!-- Styles -->
-    <link href="{{ asset('/assets/icons/fi/css/uicons-regular-rounded.css') }}" rel="stylesheet">
-    <link href="{{ asset('/assets/icons/fi/css/uicons-solid-rounded.css') }}" rel="stylesheet">
-    <link href="{{ template_debuggable_asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{!! versioned_asset('/assets/icons/fi/css/uicons-regular-rounded.css') !!}" rel="stylesheet">
+    <link href="{!! versioned_asset('/assets/icons/fi/css/uicons-solid-rounded.css') !!}" rel="stylesheet">
+    <link href="{!! template_versioned_asset('assets/css/style.css') !!}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script type="text/javascript" src="{{ template_debuggable_asset('/assets/js/utils.js') }}"></script>
+    <script type="text/javascript" src="{!! template_versioned_asset('/assets/js/utils.js') !!}"></script>
 
     <!-- Jquery -->
-    <script type="text/javascript" src="{{ asset('/assets/js/libs/jquery/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{!! versioned_asset('/assets/js/libs/jquery/jquery.min.js') !!}"></script>
 
     {!! template_head() !!}
 </head>

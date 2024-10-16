@@ -56,8 +56,8 @@
 @endsection
 
 @push('bottom-scripts')
-    <link rel="stylesheet" href="{{ template_asset('/assets/js/libs/swiper/swiper-bundle.min.css') }}" />
-    <script src="{{ template_asset('/assets/js/libs/swiper/swiper-bundle.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ template_versioned_asset('/assets/js/libs/swiper/swiper-bundle.min.css') }}" />
+    <script src="{{ template_versioned_asset('/assets/js/libs/swiper/swiper-bundle.min.js') }}"></script>
     <script>
         var swiper = new Swiper("#best-selling-products", {
             slidesPerView: "auto",
