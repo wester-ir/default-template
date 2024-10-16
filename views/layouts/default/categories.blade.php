@@ -3,7 +3,8 @@
     $categories = get_category_tree();
 
     if (! function_exists('renderCategories')) {
-        function renderCategories($category, bool $first = true) {
+        function renderCategories($category, bool $first = true): void
+        {
             if ($category->children):
                 echo "<ul class=\"". ($first ? 'main-ul' : 'sub-ul') ."\">";
                     foreach ($category->children as $child):
@@ -13,7 +14,7 @@
                                 ". ($first ? "<span class=\"fi fi-rr-angle-small-left flex mr-1\"></span>" : '') ."
                             </a>";
 
-                            echo renderCategories($child, false);
+                            renderCategories($child, false);
                         echo "</li>";
 
                     endforeach;

@@ -18,7 +18,7 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5">
                     @foreach ($latestProducts as $product)
-                        @include('templates.default.views.components.product.items.grid-item')
+                        @template_include('views.components.product.items.grid-item')
                     @endforeach
                 </div>
 
@@ -43,7 +43,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($bestSellingProducts as $product)
                             <div class="swiper-slide w-[260px] h-auto">
-                                @include('templates.default.views.components.product.items.advanced-borderless-grid-item', [
+                                @template_include('views.components.product.items.advanced-borderless-grid-item', [
                                     'imageHeight' => 300,
                                 ])
                             </div>

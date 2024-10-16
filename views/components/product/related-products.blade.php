@@ -9,7 +9,7 @@
             <div class="swiper-wrapper">
                 @foreach ($relatedProducts as $relatedProduct)
                     <div class="swiper-slide w-[230px] h-auto">
-                        @include('templates.default.views.components.product.items.grid-item', [
+                        @template_include('views.components.product.items.grid-item', [
                             'product' => $relatedProduct,
                         ])
                     </div>

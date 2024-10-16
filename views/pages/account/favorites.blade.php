@@ -6,7 +6,7 @@
     <div class="container">
         <div class="flex flex-col md:flex-row space-y-5 md:space-y-0">
             <!-- Sidebar -->
-            @include('templates.default.views.pages.account.partials.sidebar')
+            @template_include('views.pages.account.partials.sidebar')
 
             <!-- Content -->
             <div class="flex-1 w-full md:mr-5">

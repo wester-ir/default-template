@@ -5,7 +5,7 @@
 
 <a href="{{ $product->url }}" class="flex flex-col h-full bg-white rounded-lg transition-all overflow-hidden">
     <div class="flex flex-col relative flex-1">
-        @include('templates.default.views.components.product.items.partials.tags')
+        @template_include('views.components.product.items.partials.tags')
 
         <img src="{{ $product->image['url']['thumbnail'] ?? template_asset('assets/img/no-image.jpg') }}" alt="{{ $product->title }}" class="w-full object-cover rounded-md" style="height: {{ $imageHeight }}px;">
 

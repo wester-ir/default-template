@@ -77,14 +77,14 @@
             <header class="header">
                 <div class="container">
                     <!-- Logo -->
-                    @include('templates.default.views.layouts.default.logo')
+                    @template_include('views.layouts.default.logo')
 
                     <!-- Search -->
-                    @include('templates.default.views.layouts.default.search')
+                    @template_include('views.layouts.default.search')
 
                     <div class="flex items-center">
                         <!-- Auth Menu -->
-                        @include('templates.default.views.layouts.default.auth-menu')
+                        @template_include('views.layouts.default.auth-menu')
 
                         <a href="{{ route('client.cart.index') }}" class="relative mr-7 md:mr-8" rel="nofollow">
                             <i class="fi fi-rr-shopping-cart text-[28px]"></i>
@@ -99,7 +99,7 @@
             <nav id="navbar" class="shadow bg-neutral-100 transition-transform data-[is-hidden=true]:-translate-y-full" data-is-hidden="false">
                 <div class="container relative navbar-indicator-triggers">
                     <div class="relative flex items-center h-12">
-                        @include('templates.default.views.layouts.default.categories')
+                        @template_include('views.layouts.default.categories')
 
                         <div class="h-6 w-px bg-neutral-300 mx-4"></div>
 
@@ -128,13 +128,13 @@
         @yield('raw-content')
 
         <div class="main">
-            @include('templates.default.views.layouts.default.pending-order')
+            @template_include('views.layouts.default.pending-order')
 
             @yield('content')
         </div>
 
         <!-- Footer -->
-        @include('templates.default.views.layouts.default.footer')
+        @template_include('views.layouts.default.footer')
 
         <!-- Scripts -->
         @stack('bottom-scripts')

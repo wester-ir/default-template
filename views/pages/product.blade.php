@@ -45,7 +45,7 @@
 @endpush
 
 @section('raw-content')
-    @include('templates.default.views.components.product.breadcrumb')
+    @template_include('views.components.product.breadcrumb')
 @endsection
 
 @section('content')
@@ -99,7 +99,7 @@
                         @endif
 
                         <!-- Like Button -->
-                        @include('templates.default.views.components.product.like-button', [
+                        @template_include('views.components.product.like-button', [
                             'id' => $product->id,
                             'status' => $product->is_liked,
                         ])
@@ -132,7 +132,7 @@
                 @endif
 
                 <!-- Combinations -->
-                @include('templates.default.views.components.product.combinations')
+                @template_include('views.components.product.combinations')
 
                 <!-- Price -->
                 <div data-role="price-container" class="mt-8 hidden">
@@ -145,7 +145,7 @@
 
                 <div class="mt-7">
                     <!-- Add to cart -->
-                    @include('templates.default.views.components.product.add-to-cart')
+                    @template_include('views.components.product.add-to-cart')
 
                     @if ($product->points > 0)
                         <div data-role="points" class="font-light text-sm text-green-700 mt-3 hidden">
@@ -170,14 +170,14 @@
 
         <div class="space-y-10">
             <!-- Content Tabs -->
-            @include('templates.default.views.components.product.content-tabs')
+            @template_include('views.components.product.content-tabs')
 
             <!-- Comments -->
-            @include('templates.default.views.components.product.comments')
+            @template_include('views.components.product.comments')
         </div>
 
         <!-- Related Products -->
-        @include('templates.default.views.components.product.related-products')
+        @template_include('views.components.product.related-products')
     </div>
 @endsection
 

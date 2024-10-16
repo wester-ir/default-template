@@ -8,7 +8,7 @@
             <div class="p-8">
                 <div class="flex justify-center mb-5">
                     <!-- Logo -->
-                    @include('templates.default.views.layouts.default.logo', ['withName' => false])
+                    @template_include('views.layouts.default.logo', ['withName' => false])
                 </div>
 
                 <div class="mt-9">
@@ -22,7 +22,7 @@
 
                     <div class="form-control">
                         <input type="password" id="password" class="default ltr-direction text-center px-4 h-[42px]" name="password" value="" placeholder="×××××××">
-                        @include('templates.default.views.components.input-error', [
+                        @template_include('views.components.input-error', [
                             'messages' => $errors->get('password'),
                         ])
                     </div>

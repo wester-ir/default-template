@@ -8,7 +8,7 @@
             <div class="p-8">
                 <div class="flex justify-center mb-5">
                     <!-- Logo -->
-                    @include('templates.default.views.layouts.default.logo', ['withName' => false])
+                    @template_include('views.layouts.default.logo', ['withName' => false])
                 </div>
 
                 <div class="mt-9">
@@ -36,7 +36,7 @@
 
                     <div class="form-control">
                         <input type="text" id="code" maxlength="5" class="default ltr-direction text-center px-4 h-[42px]" name="code" value="" placeholder="×××××">
-                        @include('templates.default.views.components.input-error', [
+                        @template_include('views.components.input-error', [
                             'messages' => $errors->get('code'),
                         ])
                     </div>
