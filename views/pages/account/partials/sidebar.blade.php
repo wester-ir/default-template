@@ -78,12 +78,12 @@
 <template id="edit-name-modal-body-template">
     <div id="edit-name-form" class="form">
         <div class="form-row">
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="first_name">
                 <label for="first_name">نام</label>
                 <input id="first_name" type="text" name="first_name" class="default">
             </div>
 
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="last_name">
                 <label for="last_name">نام خانوادگی</label>
                 <input id="last_name" type="text" name="last_name" class="default">
             </div>
