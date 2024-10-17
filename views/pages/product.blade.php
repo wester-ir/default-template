@@ -1,6 +1,6 @@
 @extends('templates.default.views.layouts.default')
 @inject('productService', 'App\Services\ProductService')
-@inject('schemaService', 'App\Services\SchemaService')
+@use('App\Services\SchemaService')
 
 @title($product->title, false)
 @description($product->content->summary ?: $product->content->description)
@@ -8,7 +8,7 @@
 @push('head-scripts')
     <script type="application/ld+json">
         <?php
-            echo $schemaService->toJSON([
+            echo SchemaService::toJSON([
                 '@content' => 'https://schema.org',
                 '@type' => 'Product',
                 'name' => $product->title,
@@ -28,7 +28,7 @@
     </script>
     <script type="application/ld+json">
         <?php
-            echo $schemaService->toJSON([
+            echo SchemaService::toJSON([
                 '@content' => 'https://schema.org',
                 '@type' => 'BreadcrumbList',
                 'itemListElement' => $product->categories->map(function ($category, $index) {
