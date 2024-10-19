@@ -1,48 +1,8 @@
 @extends('templates.default.views.layouts.default')
 @inject('productService', 'App\Services\ProductService')
-@use('App\Services\SchemaService')
 
 @title($product->title, false)
 @description($product->content->summary ?: $product->content->description)
-
-@push('head-scripts')
-    <script type="application/ld+json">
-        <?php
-            echo SchemaService::toJSON([
-                '@content' => 'https://schema.org',
-                '@type' => 'Product',
-                'name' => $product->title,
-                'description' => $product->content->summary,
-                'mpn' => $product->sku,
-                'sku' => $product->sku,
-                'image' => $product->images->map(fn ($image) => $image->url['medium']),
-                'category' => $product->categories->map(fn ($category) => $category->url),
-                'offer' => [
-                    '@type' => 'Offer',
-                    'availability' => $product->quantity > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-                    'price' => $product->final_price,
-                    'priceCurrency' => 'IRR',
-                ],
-            ]);
-        ?>
-    </script>
-    <script type="application/ld+json">
-        <?php
-            echo SchemaService::toJSON([
-                '@content' => 'https://schema.org',
-                '@type' => 'BreadcrumbList',
-                'itemListElement' => $product->categories->map(function ($category, $index) {
-                    return [
-                        '@type' => 'ListItem',
-                        'position' => $index + 1,
-                        'name' => $category->name,
-                        'item' => $category->url,
-                    ];
-                })
-            ]);
-        ?>
-    </script>
-@endpush
 
 @section('raw-content')
     @template_include('views.components.product.breadcrumb')
