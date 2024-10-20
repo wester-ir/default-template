@@ -57,11 +57,14 @@
                 <li>
                     <a href="{{ route('client.account.notifications.index') }}" class="item {{ request()->routeIs('client.account.notifications.index') ? 'active' : null }}">
                         <i class="fi fi-rr-bell flex"></i>
-                        <span class="label">اعلان</span>
+                        
+                        <div class="flex items-center justify-between flex-1 label">
+                            <span>اعلان</span>
 
-                        @if ($unreadNotifications)
-                            <span class="badge badge-danger mr-auto -ml-2">{{ $unreadNotifications > 100 ? '+100' : $unreadNotifications }}</span>
-                        @endif
+                            @if ($unreadNotifications)
+                                <span class="badge badge-danger mr-2 md:-ml-2 px-2 py-[2px] md:px-[10px] md:py-1">{{ $unreadNotifications > 100 ? '+100' : $unreadNotifications }}</span>
+                            @endif
+                        </div>
                     </a>
                 </li>
 {{--                <li>--}}

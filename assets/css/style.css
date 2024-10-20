@@ -1624,6 +1624,16 @@ video {
   padding-bottom: 1px !important;
 }
 
+.px-1 {
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+}
+
+.py-\[2px\] {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
 .pl-11 {
   padding-left: 2.75rem !important;
 }
@@ -3374,6 +3384,10 @@ header.header .search input[type="text"]:focus {
     margin-top: 0px !important;
   }
 
+  .md\:-ml-2 {
+    margin-left: -0.5rem !important;
+  }
+
   .md\:block {
     display: block !important;
   }
@@ -3453,6 +3467,16 @@ header.header .search input[type="text"]:focus {
   .md\:px-0 {
     padding-left: 0px !important;
     padding-right: 0px !important;
+  }
+
+  .md\:px-\[10px\] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .md\:py-1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
   }
 
   .md\:text-base {
