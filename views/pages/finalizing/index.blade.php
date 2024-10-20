@@ -26,11 +26,11 @@
                         <div class="text-sm font-light mt-1">پس از اعمال کد تخفیف، درصورت هرگونه تغییر در سبد کالا، کد تخفیف حذف خواهد شد.</div>
 
                         <div class="mt-5">
-                            <div id="code" data-role="discount-form" class="flex mt-2 {{ $cart->has_discount ? 'hidden' : '' }}">
+                            <div id="code" data-role="discount-form" class="flex mt-2 {{ $cart->hasDiscount() ? 'hidden' : '' }}">
                                 <input data-role="discount-code" type="text" class="default rounded-l-none flex-1 font-latin uppercase ltr-direction" name="discount_code" value="">
                                 <button type="button" data-role="apply-discount-btn" class="btn btn-default rounded-s-none -ms-px text-sm">ثبت کد تخفیف</button>
                             </div>
-                            <div data-role="discount-success" class="flex mt-2 text-green-500 {{ ! $cart->has_discount ? 'hidden' : '' }}">
+                            <div data-role="discount-success" class="flex mt-2 text-green-500 {{ ! $cart->hasDiscount() ? 'hidden' : '' }}">
                                 کد تخفیف اعمال شده است.
                             </div>
                         </div>
