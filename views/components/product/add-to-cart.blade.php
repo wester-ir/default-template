@@ -202,7 +202,7 @@
                     toast.error('موجودی محصول در سبد خرید از حداکثر گذشته است.');
                     break;
                 case 'maximum_allowed_quantity_reached':
-                    toast.error('موجودی محصول در سبد خرید به حداکثر رسید است.');
+                    toast.error('موجودی محصول در سبد خرید به حداکثر رسیده است.');
                     break;
                 case 'product_deleted':
                     toast.error('محصول مورد نظر حذف شده است.');
