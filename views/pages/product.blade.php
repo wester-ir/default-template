@@ -34,7 +34,7 @@
                         <div thumbsSlider="" class="swiper product-image-thumb-slider">
                             <div class="swiper-wrapper">
                                 @foreach ($product->images as $image)
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide" data-image-id="{{ $image->id }}">
                                         <img
                                             src="{{ $image->url['thumbnail'] }}"
                                             class="object-cover rounded-md w-full h-20 cursor-pointer" alt="{{ $product->title }}">
@@ -113,15 +113,17 @@
                         </div>
                     @endif
 
-                    @if (! $product->is_quantity_unlimited && settingService('product')['show_quantity']['status'])
-                        <div data-role="quantity-container" class="text-danger mt-5 hidden">
-                            تنها <span data-role="quantity">{{ $product->quantity }}</span> عدد باقی مانده است.
+                    <template id="template-max-available-quantity-message">
+                        <div data-role="max-available-quantity" class="text-danger mt-5">
+                            تنها <span data-role="quantity"></span> عدد باقی مانده است.
                         </div>
-                    @endif
+                    </template>
 
-                    <div data-role="unavailable" class="font-medium text-danger mt-8 hidden">
-                        متاسفانه محصول مورد نظر موجود نمی باشد.
-                    </div>
+                    <template id="template-unavailable-message">
+                        <div data-role="unavailable" class="font-medium text-danger mt-8">
+                            متاسفانه محصول مورد نظر موجود نمی باشد.
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -173,7 +175,7 @@
             selectCombination('{{ $product->combinations[0]->uid }}');
         });
 
-        var swiper = new Swiper("#related-products", {
+        new Swiper("#related-products", {
             slidesPerView: "auto",
             spaceBetween: 20,
             freeMode: true,

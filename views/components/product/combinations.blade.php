@@ -129,6 +129,38 @@
             }
         }
 
+        function hideUnavailableMessage() {
+            $('[data-role="unavailable"]').remove();
+        }
+
+        function showUnavailableMessage() {
+            hideUnavailableMessage();
+
+            const templateId = '#template-unavailable-message';
+            const html = $(templateId).html();
+
+            $(html).insertAfter(templateId);
+        }
+
+        function hideMaxAvailableQuantity() {
+            $('[data-role="max-available-quantity"]').remove();
+        }
+
+        function showMaxAvailableQuantity(quantity) {
+            hideMaxAvailableQuantity();
+
+            const templateId = '#template-max-available-quantity-message';
+            const html = $(templateId).html();
+
+            if (html && quantity) {
+                $(html).insertAfter(templateId);
+
+                const elem = $('[data-role="max-available-quantity"]').find('[data-role="quantity"]');
+
+                elem.text(formatNumber(quantity));
+            }
+        }
+
         function selectCombination(uid) {
             // Reset
             $('[data-role="variant-item"]').attr('data-is-available', 'true');
@@ -141,8 +173,8 @@
             $('[data-role="refresh-quantity"]').addClass('hidden');
             $('[data-role="price-container"]').addClass('hidden');
             $('[data-role="points"]').addClass('hidden');
-            $('[data-role="quantity-container"]').addClass('hidden');
-            $('[data-role="unavailable"]').addClass('hidden');
+            hideMaxAvailableQuantity();
+            hideUnavailableMessage();
 
             const combination = productDetails.combinations.find(function (combination) {
                 return combination.uid === uid;
@@ -197,23 +229,11 @@
                 // Show other elements for available combinations
                 $('[data-role="points"], [data-role="price-container"]').removeClass('hidden');
 
-                setMaxAvailableQuantity(combination.max_available_quantity);
+                showMaxAvailableQuantity(combination.max_available_quantity);
                 setPrice(combination.price, combination.final_price);
             } else {
                 // Show the unavailable message
-                $('[data-role="unavailable"]').removeClass('hidden');
-            }
-        }
-
-        function setMaxAvailableQuantity(quantity) {
-            const container = $('[data-role="quantity-container"]');
-            const elem = container.find('[data-role="quantity"]');
-
-            if (quantity) {
-                elem.text(formatNumber(quantity));
-
-                // Show
-                container.removeClass('hidden');
+                showUnavailableMessage();
             }
         }
 
@@ -224,9 +244,19 @@
             $('[data-role="final-price"]').text(formatNumber(finalPrice) + currency);
         }
 
+        function getSlideIndexByImageId(imageId) {
+            const $slides = $('.product-image-thumb-slider').find('.swiper-slide');
+            const $targetSlide = $slides.filter(`[data-image-id="${imageId}"]`);
+
+            return $slides.index($targetSlide);
+        }
+
         function setImage(imageIds) {
-            if (imageIds) {
-                $('img[data-role="product-tiny-image"][data-image-id="'+ imageIds[0] +'"]').click();
+            if (Array.isArray(imageIds) && imageIds.length > 0) {
+                const id = imageIds[0];
+                const index = getSlideIndexByImageId(id);
+
+                swiper.slideTo(index, 10);
             }
         }
 
