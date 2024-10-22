@@ -40,11 +40,7 @@
             uid: null,
         };
 
-        const productDetails = {
-            variant_styles: {{ Js::from($product->variants->keyBy('id')->map(fn ($variant) => $variant->style->slug())) }},
-            variants: {{ Js::from($product->variants->pluck('id')) }},
-            combinations: {{ Js::from($product->combinations->select(['id', 'uid', 'cart', 'max_available_quantity', 'final_price', 'price', 'image_ids', 'variant_ids'])) }},
-        };
+        const productDetails = {{ Js::from($product->product_details) }};
 
         $('[data-role="variant-item"]').click(function () {
             const variantId = $(this).data('variant-id');
