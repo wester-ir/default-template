@@ -718,10 +718,6 @@ video {
   margin-bottom: -1.25rem !important;
 }
 
-.-ml-2 {
-  margin-left: -0.5rem !important;
-}
-
 .-ml-\[6px\] {
   margin-left: -6px !important;
 }
@@ -1614,6 +1610,11 @@ video {
   padding-bottom: 1.25rem !important;
 }
 
+.py-\[2px\] {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
 .py-\[6px\] {
   padding-top: 6px !important;
   padding-bottom: 6px !important;
@@ -1622,16 +1623,6 @@ video {
 .py-px {
   padding-top: 1px !important;
   padding-bottom: 1px !important;
-}
-
-.px-1 {
-  padding-left: 0.25rem !important;
-  padding-right: 0.25rem !important;
-}
-
-.py-\[2px\] {
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
 }
 
 .pl-11 {
@@ -3342,6 +3333,14 @@ header.header .search input[type="text"]:focus {
     flex: 1 1 0% !important;
   }
 
+  .sm\:flex-auto {
+    flex: 1 1 auto !important;
+  }
+
+  .sm\:flex-none {
+    flex: none !important;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
@@ -3364,6 +3363,10 @@ header.header .search input[type="text"]:focus {
     margin: 0.5rem !important;
   }
 
+  .md\:-ml-2 {
+    margin-left: -0.5rem !important;
+  }
+
   .md\:ml-5 {
     margin-left: 1.25rem !important;
   }
@@ -3382,10 +3385,6 @@ header.header .search input[type="text"]:focus {
 
   .md\:mt-0 {
     margin-top: 0px !important;
-  }
-
-  .md\:-ml-2 {
-    margin-left: -0.5rem !important;
   }
 
   .md\:block {

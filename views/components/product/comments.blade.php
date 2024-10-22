@@ -8,7 +8,7 @@
             @else
                 @foreach ($product->comments as $comment)
                     <div class="comment border border-neutral-200 rounded-lg" data-id="{{ $comment->id }}">
-                        <div class="flex items-center justify-between p-3 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 text-sm">
                             <div class="flex items-center space-x-2 rtl:space-x-reverse">
                                 @if ($comment->is_user_anonymous || ! $comment->user->has_full_name)
                                     <div class="font-light">کاربر سایت</div>
@@ -29,35 +29,33 @@
                                 <div class="font-light">
                                     {{ verta($comment->created_at)->formatDifference() }}
                                 </div>
+                            </div>
 
+                            <div class="flex items-center mt-3 sm:mt-0 flex-1 sm:flex-none">
                                 @if ($comment->is_author)
-                                    <div>
-                                        <div class="bg-neutral-200 w-[5px] h-[5px] rounded-full mx-1"></div>
-                                    </div>
-
                                     <div>
                                         <button type="button" class="delete-comment text-red-500" data-id="{{ $comment->id }}">حذف</button>
                                     </div>
                                 @endif
-                            </div>
 
-                            <div class="flex items-center">
-                                @switch ($comment->recommendation_status->slug())
-                                    @case ('recommended')
-                                        <span class="badge badge-success">پیشنهاد می کنم</span>
-                                    @break
+                                <div class="mr-auto sm:mr-2">
+                                    @switch ($comment->recommendation_status->slug())
+                                        @case ('recommended')
+                                            <span class="badge badge-success">پیشنهاد می کنم</span>
+                                        @break
 
-                                    @case ('not_recommended')
-                                        <span class="badge badge-danger">پیشنهاد نمی کنم</span>
-                                    @break
+                                        @case ('not_recommended')
+                                            <span class="badge badge-danger">پیشنهاد نمی کنم</span>
+                                        @break
 
-                                    @case ('no_idea')
-                                        <span class="badge badge-secondary">بدون نظر</span>
-                                    @break
-                                @endswitch
+                                        @case ('no_idea')
+                                            <span class="badge badge-secondary">بدون نظر</span>
+                                        @break
+                                    @endswitch
+                                </div>
                             </div>
                         </div>
-                        <div class="p-3 pt-0">
+                        <div class="p-3 pt-0 mt-2">
                             @if ($comment->title)
                                 <div class="h3 text-[1.1rem] mb-3">{{ $comment->title }}</div>
                             @endif
@@ -127,13 +125,15 @@
         $('.delete-comment').click(function () {
             const id = $(this).data('id');
 
-            axios.delete('{{ route('client.product.ajax.comments.destroy', [
-                'product' => $product,
-                'comment' => '@id'
-            ]) }}'.replace('@id', id)).then(() => {
-                $('.comment[data-id="'+ id +'"]').remove();
-            }).catch((e) => {
+            modal.defaults.confirmDanger(function () {
+                axios.delete('{{ route('client.product.ajax.comments.destroy', [
+                    'product' => $product,
+                    'comment' => '@id'
+                ]) }}'.replace('@id', id)).then(() => {
+                    $('.comment[data-id="'+ id +'"]').remove();
+                }).catch((e) => {
 
+                });
             });
         });
 
