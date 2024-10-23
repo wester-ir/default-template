@@ -15,7 +15,7 @@
         <form id="finalize-form" action="{{ route('client.cart.finalizing.finalize') }}" method="POST" class="flex flex-col md:flex-row" onsubmit="return validate()">
             @csrf
             <input type="hidden" name="invoice_key" value="">
-            <input type="hidden" name="payment_gateway" value="{{ $paymentGateways->isEmpty() ? null : $paymentGateways[0]->id }}">
+            <input type="hidden" name="payment_gateway" value="{{ $gateways->isEmpty() ? null : $gateways[0]->id }}">
 
             <!-- Content -->
             <div class="space-y-5 flex-1 ml-0 md:ml-5">
@@ -48,9 +48,9 @@
 
                     @if (! $addresses->isEmpty())
                         <div class="mt-5 space-y-3">
-                            @foreach ($addresses as $address)
+                            @foreach ($addresses as $key => $address)
                                 <label class="flex items-center border border-neutral-200 hover:ring ring-slate-200 transition-all p-5 rounded-lg cursor-pointer">
-                                    <input type="radio" name="address_id" value="{{ $address->id }}">
+                                    <input type="radio" name="address_id" value="{{ $address->id }}" @checked($key === 0)>
                                     <div class="flex-1 mr-4">
                                         <div>{{ $address->address }}</div>
 
@@ -71,13 +71,13 @@
                             @endforeach
 
                             <label class="flex items-center bg-slate-100 rounded-lg cursor-pointer p-5">
-                                <input type="radio" name="address_id" value="0" checked>
+                                <input type="radio" name="address_id" value="0">
                                 <div class="flex-1 mr-4">آدرس جدید وارد می کنم</div>
                             </label>
                         </div>
                     @endif
 
-                    <div id="new-address-form" class="form mt-7">
+                    <div id="new-address-form" class="form mt-7 @if ($addresses->isNotEmpty()) hidden @endif">
                         <div class="form-row">
                             <div class="form-control" data-form-field-id="province_id">
                                 <label for="province_id">استان *</label>
@@ -214,13 +214,13 @@
                         </div>
                     </div>
 
-                    @if ($paymentGateways->count() !== 1)
+                    @if ($gateways->count() !== 1)
                         <div class="border border-neutral-200 rounded-lg p-5">
                             <h4>درگاه پرداخت</h4>
 
-                            @if (! $paymentGateways->isEmpty())
+                            @if (! $gateways->isEmpty())
                                 <div class="grid grid-cols-3 gap-3 mt-4">
-                                    @foreach ($paymentGateways as $gateway)
+                                    @foreach ($gateways as $gateway)
                                         <div data-id="{{ $gateway->id }}" data-role="payment-gateway" data-is-active="{{ var_export($gateway->is_default) }}" class="flex items-center justify-center p-[2px] bg-white border border-neutral-200 rounded-lg overflow-hidden cursor-pointer data-[is-active=true]:border-green-400">
                                             <img src="{{ $gateway->logo_url }}" class="w-full">
                                         </div>
@@ -232,7 +232,7 @@
                         </div>
                     @endif
 
-                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm" @disabled($isContinueBtnActive)>ادامه سفارش</button>
+                    <button data-role="continue-btn" class="w-full block btn btn-success text-center text-sm" @disabled($canContinue)>ادامه سفارش</button>
                 </div>
 
                 <div class="text-neutral-600 text-xs font-light leading-6 mt-2">جهت جلوگیری از اتمام موجودی هر چه سریعتر نسبت به پرداخت هزینه سفارش خود اقدام کنید.</div>
