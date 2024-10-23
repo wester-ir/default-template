@@ -3,7 +3,7 @@
 <template id="address-modal-body-template">
     <div id="address-form" class="form">
         <div class="form-row">
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="province_id">
                 <label for="province_id">استان *</label>
                 <select id="province_id" class="default" name="province_id" onchange="getCities(event.target.value)">
                     @foreach (Province::get() as $province)
@@ -14,18 +14,18 @@
                 </select>
             </div>
 
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="city_id">
                 <label for="city_id">شهر *</label>
                 <select id="city_id" class="default" name="city_id"></select>
             </div>
 
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="postal_code">
                 <label for="postal_code">کد پستی</label>
                 <input id="postal_code" type="text" name="postal_code" class="default text-center">
             </div>
         </div>
 
-        <div class="form-control">
+        <div class="form-control" data-form-field-id="address">
             <label for="address">آدرس *</label>
             <input id="address" type="text" name="address" class="default">
         </div>
@@ -42,18 +42,18 @@
         </div>
 
         <div class="form-row">
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="first_name">
                 <label for="first_name">نام *</label>
                 <input id="first_name" type="text" name="first_name" class="default">
             </div>
 
-            <div class="form-control">
+            <div class="form-control" data-form-field-id="last_name">
                 <label for="last_name">نام خانوادگی *</label>
                 <input id="last_name" type="text" name="last_name" class="default">
             </div>
         </div>
 
-        <div class="form-control">
+        <div class="form-control" data-form-field-id="number">
             <label for="number">شماره موبایل گیرنده *</label>
             <input id="number" type="text" name="number" class="default">
         </div>
