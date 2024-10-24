@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
 
 @php
     $title = 'برند '. $brand->name . ' — '. $brand->latin_name;

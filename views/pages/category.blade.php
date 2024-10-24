@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
 
 @title([$category->page_title ?: $category->full_name_or_name, 'صفحه '. $products->currentPage()], false)
 @description($category->meta_description)

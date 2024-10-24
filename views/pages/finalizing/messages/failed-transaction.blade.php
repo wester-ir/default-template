@@ -1,5 +1,4 @@
-@extends('templates.default.views.layouts.default')
-@inject('productService', 'App\Services\ProductService')
+@template_extends('views.layouts.default')
 
 @title('تراکنش ناموفق')
 

@@ -1,4 +1,5 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
+
 @inject('cartService', 'App\Services\CartService')
 @use('App\Models\Province')
 @use('App\Models\Courier')

@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
 
 @title(['پرفروش ترین محصولات ', 'صفحه '. $products->currentPage()], false)
 

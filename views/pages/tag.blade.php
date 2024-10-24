@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
 
 @title([$tag->title ?: $tag->name, 'صفحه '. $products->currentPage()], false)
 @description($tag->summary ?: $tag->description)

@@ -1,4 +1,4 @@
-@extends('templates.default.views.layouts.basic')
+@template_extends('views.layouts.basic')
 
 @title('تایید شماره موبایل', false)
 

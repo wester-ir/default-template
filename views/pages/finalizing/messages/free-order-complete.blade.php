@@ -1,4 +1,5 @@
-@extends('templates.default.views.layouts.default')
+@template_extends('views.layouts.default')
+
 @title('سفارش موفق')
 
 @section('content')
