@@ -123,7 +123,7 @@
                                     <div class="flex space-x-3 space-x-reverse p-5">
                                         @foreach ($order->items->take(5) as $item)
                                             <div>
-                                                @if ($item->relationLoaded('combination') && $item->combination->relationLoaded('image') && $item->combination->image)
+                                                @if ($item->combination?->relationLoaded('image'))
                                                     <img src="{{ $item->combination->image['url']['thumbnail'] }}" class="w-24 h-24 object-cover rounded-md" title="{{ $item->meta['title'] }}" alt="{{ $item->meta['title'] }}">
                                                 @else
                                                     <img src="{{ template_asset('assets/img/no-image.jpg') }}" class="w-24 h-24 object-cover rounded-md">
