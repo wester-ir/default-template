@@ -108,13 +108,15 @@
                 <button type="button" class="submit btn btn-success w-32">ارسال</button>
             </form>
         @else
-            <div class="form comment-form border border-neutral-200 rounded-lg px-5 py-4 font-light w-full lg:w-[450px] mt-3 lg:mt-0">
-                @php
-                    $loginRoute = route('auth.login', [
-                        'redirect_to' => url()->current(),
-                    ]);
-                @endphp
-                جهت ارسال نظر <a class="font-medium link" href="{{ $loginRoute }}" rel="nofollow">وارد شوید</a> یا <a class="font-medium link" href="{{ $loginRoute }}" rel="nofollow">ثبت نام</a> کنید.
+            <div class="w-full lg:w-[450px] mt-3 lg:mt-0">
+                <div class="form comment-form border border-neutral-200 rounded-lg px-5 py-4 font-light">
+                    @php
+                        $loginRoute = route('auth.login', [
+                            'redirect_to' => url()->current(),
+                        ]);
+                    @endphp
+                    جهت ارسال نظر <a class="font-medium link" href="{{ $loginRoute }}" rel="nofollow">وارد شوید</a> یا <a class="font-medium link" href="{{ $loginRoute }}" rel="nofollow">ثبت نام</a> کنید.
+                </div>
             </div>
         @endif
     </div>
