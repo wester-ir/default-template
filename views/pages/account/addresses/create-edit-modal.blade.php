@@ -55,7 +55,7 @@
 
         <div class="form-control" data-form-field-id="number">
             <label for="number">شماره موبایل گیرنده *</label>
-            <input id="number" type="text" name="number" class="default">
+            <input id="number" type="text" name="number" class="default ltr-direction">
         </div>
     </div>
 </template>
