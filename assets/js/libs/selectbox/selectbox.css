@@ -32,7 +32,7 @@
 
 .selectbox .selectbox-list-container {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     margin-top: 1px;
     width: 100%;
     overflow: hidden;
