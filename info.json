@@ -11,9 +11,9 @@
         }
     ],
     "requirements": {
-        "weska": ["1.0.0"]
+        "weska": ["1.00"]
     },
     "screenshot": "screenshot.png",
-    "version": "1.6",
+    "version": "1.60",
     "github": "https://github.com/weska-ir/default-template"
 }
