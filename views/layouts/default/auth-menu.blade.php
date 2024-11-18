@@ -25,6 +25,13 @@
 
                     <hr class="my-1 border-neutral-100">
 
+                    <a href="{{ route('client.account.orders.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                        <div class="flex items-center justify-center w-7 ml-3">
+                            <i class="fi fi-rr-shopping-bag text-lg flex"></i>
+                        </div>
+                        <span>سفارش ها</span>
+                    </a>
+
                     <a href="{{ route('client.account.addresses.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                         <div class="flex items-center justify-center w-7 ml-3">
                             <i class="fi fi-rr-address-book text-lg flex"></i>
