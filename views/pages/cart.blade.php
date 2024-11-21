@@ -86,6 +86,17 @@
 
             cartDetails.items.forEach(function (item) {
                 items += '<div data-role="cart-item" data-id="'+ item.product_combination_id +'" data-amount-per-sale="'+ item.amount_per_sale +'">';
+                    items += '<div class="flex md:hidden mb-2 '+ ((item.is_deleted || ! item.is_lowest_qty_available || item.is_max_qty_exceeded) && 'text-danger') +'">';
+                    if (item.title) {
+                        items += '<a href="'+ (item.url || '#') +'">';
+                            items += '<h4>'+ item.title +'</h4>';
+                        items += '</a>';
+                    } else {
+                        items += '<h4>حذف شده</h4>';
+                    }
+
+                    items += '</div>';
+
                     items += '<div class="flex">';
                         // Image
                         items += '<a href="'+ (item.url || '#') +'" class="block w-32 min-w-[8rem] h-32 min-h-[8rem]">';
@@ -98,7 +109,7 @@
 
                         items += '<div class="flex-1 ms-5">';
                             items += '<div class="flex items-center justify-between">';
-                                items += '<div class="flex items-center '+ ((item.is_deleted || ! item.is_lowest_qty_available || item.is_max_qty_exceeded) && 'text-danger') +'">';
+                                items += '<div class="hidden md:flex items-center ml-2 '+ ((item.is_deleted || ! item.is_lowest_qty_available || item.is_max_qty_exceeded) && 'text-danger') +'">';
                                     if (item.title) {
                                         items += '<a href="'+ (item.url || '#') +'">';
                                             items += '<h4>'+ item.title +'</h4>';
@@ -106,19 +117,15 @@
                                     } else {
                                         items += '<h4>حذف شده</h4>';
                                     }
-
-                                    if (item.is_deleted || ! item.is_lowest_qty_available || item.is_max_qty_exceeded) {
-                                        items += '<i class="fi fi-rr-triangle-warning text-lg flex ms-2"></i>';
-                                    }
                                 items += '</div>';
-                                items += '<button class="text-danger text-xs md:text-sm font-light mr-2" onclick="modal.defaults.confirmDanger(() => { $(\'[data-role=remove-item]\').click(); })">حذف</button>';
+                                items += '<button class="text-danger text-sm font-light mr-auto" onclick="modal.defaults.confirmDanger(() => { $(\'[data-role=remove-item]\').click(); })">حذف</button>';
                             items += '</div>';
 
                             items += '<div class="mt-3 space-y-2 font-light text-sm">';
                             if (item.variants) {
                                 item.variants.forEach(function (variant) {
                                     items += '<div class="flex items-center">';
-                                        items += '<div class="text-neutral-600 w-20">'+ variant.variant +' :</div>';
+                                        items += '<div class="text-neutral-600 w-full max-w-[80px] min-w-[50px]">'+ variant.variant +' :</div>';
                                         items += '<div class="font-medium">';
 
                                         if (variant.type === 'color' && variant.variant) {
@@ -196,13 +203,13 @@
                             items += '</div>';
 
                             // Unavailable
-                            items += '<div class="text-red-500 '+ ((! item.is_max_qty_exceeded || ! item.is_lowest_qty_available) && 'hidden') +'">موجودی محصول از موجودی انبار رد شده است.</div>';
+                            items += '<div class="text-red-500 '+ ((! item.is_max_qty_exceeded || ! item.is_lowest_qty_available) && 'hidden') +'">موجودی ناکافی</div>';
 
                             // Unavailable
-                            items += '<div class="text-red-500 '+ ((item.is_deleted || item.is_lowest_qty_available) && 'hidden') +'">محصول مورد نظر موجود نمی باشد.</div>';
+                            items += '<div class="text-red-500 '+ ((item.is_deleted || item.is_lowest_qty_available) && 'hidden') +'">ناموجود</div>';
 
                             // Deleted
-                            items += '<div class="text-red-500 '+ (! item.is_deleted && 'hidden') +'">محصول مورد نظر حذف شده است.</div>';
+                            items += '<div class="text-red-500 '+ (! item.is_deleted && 'hidden') +'">حذف شده</div>';
                         items += '</div>';
                     items += '</div>';
                 items += '</div>';
@@ -284,12 +291,12 @@
         }
 
         function lockCart(e) {
-            lockElem(e.find('[data-role="quantity-control-container"] button'));
+            lockElem(e.find('button'));
             lockElem($('[data-role="continue-btn"]'));
         }
 
         function unlockCart(e) {
-            unlockElem(e.find('[data-role="quantity-control-container"] button'));
+            unlockElem(e.find('button'));
             unlockElem($('[data-role="continue-btn"]'));
         }
 
@@ -373,26 +380,28 @@
             const parent = $(this).parents('[data-role="cart-item"]');
             const id = parent.data('id');
 
-            lockCart(parent);
-            requestStore.removeCartItem(id)
-                .then(function (response) {
-                    const data = response.data;
-
-                    cartDetails = data.details;
-                })
-                .catch((e) => {
-                    if (e.request.status === 400) {
-                        const data = e.response.data;
+            modal.defaults.confirmDanger(() => {
+                lockCart(parent);
+                requestStore.removeCartItem(id)
+                    .then(function (response) {
+                        const data = response.data;
 
                         cartDetails = data.details;
+                    })
+                    .catch((e) => {
+                        if (e.request.status === 400) {
+                            const data = e.response.data;
 
-                        handleErrors(data.result);
-                    }
-                })
-                .finally(() => {
-                    render();
-                    unlockCart(parent);
-                });
+                            cartDetails = data.details;
+
+                            handleErrors(data.result);
+                        }
+                    })
+                    .finally(() => {
+                        render();
+                        unlockCart(parent);
+                    });
+            });
         });
     </script>
 @endpush

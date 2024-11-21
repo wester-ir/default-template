@@ -13,11 +13,12 @@
 @import "./components/scrollbar.css";
 
 body {
-    @apply text-neutral-700 flex flex-col h-screen pt-[114px];
+    @apply flex flex-col h-screen pt-[114px];
 
+    color: rgb(38 38 38);
     font-family: "Vazirmatn UI FD", serif;
     font-feature-settings: "ss02";
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: auto;
 }
 
 h1, .h1,
@@ -74,11 +75,11 @@ header.header {
 }
 
 header.header .search {
-    @apply flex items-center relative;
+    @apply flex items-center relative w-auto min-w-0;
 }
 
 header.header .search input[type="text"] {
-    @apply bg-white w-40 px-4 sm:w-64 md:w-[400px] h-10 rounded-full border border-neutral-300 focus:shadow transition-colors;
+    @apply bg-white w-40 px-4 w-[400px] min-w-0 h-10 rounded-full border border-neutral-300 focus:shadow transition-colors;
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {

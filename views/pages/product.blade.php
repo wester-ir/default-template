@@ -14,8 +14,8 @@
             <!-- Images -->
             <div class="w-full lg:w-[400px] space-y-3">
                 @if (! $product->images->isEmpty())
-                    <div class="swiper product-image-slider">
-                        <div class="swiper-wrapper rounded-lg">
+                    <div class="swiper product-image-slider rounded-lg">
+                        <div class="swiper-wrapper">
                             @foreach ($product->images as $image)
                                 <div class="swiper-slide h-auto">
                                     <div class="swiper-zoom-container">
@@ -84,8 +84,8 @@
 
                 <!-- Description -->
                 @if ($product->content->description)
-                    <section class="font-light mt-5">
-                        <div class="text-neutral-600 [&>ul]:ps-5 [&>ul>li]:list-disc leading-[29px]">
+                    <section class="font-normal mt-5">
+                        <div class="[&>ul]:ps-5 [&>ul>li]:text-black [&>ul>li>strong]:font-light [&>ul>li>strong]:text-neutral-600 [&>ul>li]:list-disc marker:text-neutral-400 leading-[30px]">
                             {!! $product->content->description !!}
                         </div>
                     </section>

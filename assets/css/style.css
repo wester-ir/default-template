@@ -926,10 +926,6 @@ video {
   height: 1.5rem !important;
 }
 
-.h-7 {
-  height: 1.75rem !important;
-}
-
 .h-8 {
   height: 2rem !important;
 }
@@ -978,6 +974,10 @@ video {
   min-height: 320px !important;
 }
 
+.min-h-\[40px\] {
+  min-height: 40px !important;
+}
+
 .min-h-\[5rem\] {
   min-height: 5rem !important;
 }
@@ -1000,10 +1000,6 @@ video {
 
 .w-2 {
   width: 0.5rem !important;
-}
-
-.w-20 {
-  width: 5rem !important;
 }
 
 .w-24 {
@@ -1102,8 +1098,20 @@ video {
   width: 100vw !important;
 }
 
+.min-w-\[40px\] {
+  min-width: 40px !important;
+}
+
+.min-w-\[50px\] {
+  min-width: 50px !important;
+}
+
 .min-w-\[8rem\] {
   min-width: 8rem !important;
+}
+
+.max-w-\[80px\] {
+  max-width: 80px !important;
 }
 
 .flex-1 {
@@ -1720,6 +1728,10 @@ video {
 
 .leading-\[29px\] {
   line-height: 29px !important;
+}
+
+.leading-\[30px\] {
+  line-height: 30px !important;
 }
 
 .leading-loose {
@@ -2619,11 +2631,10 @@ body {
   height: 100vh;
   flex-direction: column;
   padding-top: 114px;
-  --tw-text-opacity: 1;
-  color: rgb(64 64 64 / var(--tw-text-opacity));
+  color: rgb(38 38 38);
   font-family: "Vazirmatn UI FD", serif;
   font-feature-settings: "ss02";
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: auto;
 }
 
 h1, .h1,
@@ -2701,12 +2712,16 @@ header.header {
 header.header .search {
   position: relative;
   display: flex;
+  width: auto;
+  min-width: 0px;
   align-items: center;
 }
 
 header.header .search input[type="text"] {
   height: 2.5rem;
   width: 10rem;
+  width: 400px;
+  min-width: 0px;
   border-radius: 9999px;
   border-width: 1px;
   --tw-border-opacity: 1;
@@ -2724,18 +2739,6 @@ header.header .search input[type="text"]:focus {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-@media (min-width: 640px) {
-  header.header .search input[type="text"] {
-    width: 16rem;
-  }
-}
-
-@media (min-width: 768px) {
-  header.header .search input[type="text"] {
-    width: 400px;
-  }
 }
 
 #categories-menu [data-role="category-children"] ul.main-ul {
@@ -3083,8 +3086,16 @@ header.header .search input[type="text"]:focus {
   color: rgb(156 163 175 ) !important;
 }
 
+.marker\:text-neutral-400 *::marker {
+  color: rgb(163 163 163 ) !important;
+}
+
 .marker\:text-gray-400::marker {
   color: rgb(156 163 175 ) !important;
+}
+
+.marker\:text-neutral-400::marker {
+  color: rgb(163 163 163 ) !important;
 }
 
 .first\:pt-0:first-child {
@@ -3333,10 +3344,6 @@ header.header .search input[type="text"]:focus {
     flex: 1 1 0% !important;
   }
 
-  .sm\:flex-auto {
-    flex: 1 1 auto !important;
-  }
-
   .sm\:flex-none {
     flex: none !important;
   }
@@ -3482,11 +3489,6 @@ header.header .search input[type="text"]:focus {
     font-size: 1rem !important;
     line-height: 1.5rem !important;
   }
-
-  .md\:text-sm {
-    font-size: 0.875rem !important;
-    line-height: 1.25rem !important;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -3554,8 +3556,22 @@ header.header .search input[type="text"]:focus {
   margin-top: 0.5rem !important;
 }
 
+.\[\&\>ul\>li\>strong\]\:font-light>ul>li>strong {
+  font-weight: 300 !important;
+}
+
+.\[\&\>ul\>li\>strong\]\:text-neutral-600>ul>li>strong {
+  --tw-text-opacity: 1 !important;
+  color: rgb(82 82 82 / var(--tw-text-opacity)) !important;
+}
+
 .\[\&\>ul\>li\]\:list-disc>ul>li {
   list-style-type: disc !important;
+}
+
+.\[\&\>ul\>li\]\:text-black>ul>li {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
 }
 
 .\[\&\>ul\]\:ps-5>ul {

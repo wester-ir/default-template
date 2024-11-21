@@ -1,5 +1,5 @@
 @if (auth()->check())
-    <div class="flex">
+    <div class="flex mr-2">
         <div data-role="dropdown" class="relative">
             <button data-role="dropdown-trigger" type="button" data-is-active="false" class="flex items-center btn px-2 text-sm font-normal data-[is-active=true]:bg-white">
                 <span class="hidden md:block" data-role="users-full-name">{{ auth()->user()->full_name ?? 'کاربر' }}</span>
@@ -19,7 +19,7 @@
             <div data-role="dropdown-content" class="absolute hidden z-[10000] w-60 mt-[6px] rounded-md shadow-lg origin-top-left left-0 bg-white">
                 <div class="flex flex-col rounded-md ring-1 ring-black ring-opacity-5">
                     <a href="{{ route('client.account.index') }}" class="flex items-center w-full px-4 py-4 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
-                        <img src="{{ template_asset('assets/img/user.png') }}" class="w-7 h-7 rounded-full me-3 shadow">
+                        <img src="{{ template_asset('assets/img/user.png') }}" class="w-6 h-6 rounded-full me-3 shadow">
                         <span>حساب کاربری</span>
                     </a>
 
@@ -27,21 +27,21 @@
 
                     <a href="{{ route('client.account.orders.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                         <div class="flex items-center justify-center w-7 ml-3">
-                            <i class="fi fi-rr-shopping-bag text-lg flex"></i>
+                            <i class="fi fi-rr-shopping-bag text-xl flex"></i>
                         </div>
                         <span>سفارش ها</span>
                     </a>
 
                     <a href="{{ route('client.account.addresses.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                         <div class="flex items-center justify-center w-7 ml-3">
-                            <i class="fi fi-rr-address-book text-lg flex"></i>
+                            <i class="fi fi-rr-address-book text-xl flex"></i>
                         </div>
                         <span>آدرس ها</span>
                     </a>
 
                     <a href="{{ route('client.account.notifications.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                         <div class="flex items-center justify-center w-7 ml-3">
-                            <i class="fi fi-rr-bell text-lg flex"></i>
+                            <i class="fi fi-rr-bell text-xl flex"></i>
                         </div>
                         <span>اعلان ها</span>
 
@@ -50,12 +50,14 @@
                         @endif
                     </a>
 
+                    <hr class="my-1 border-neutral-100">
+
                     @if (auth()->user()->is_staff)
                         <a href="{{ route('admin.index') }}" class="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                             <div class="flex items-center justify-center w-7 ml-3">
                                 <div class="bg-red-500 rounded-full w-2 h-2 ring-4 ring-red-100"></div>
                             </div>
-                            <span class="text-red-500">مدیریت</span>
+                            <span>مدیریت</span>
                         </a>
                     @endif
 
@@ -65,7 +67,7 @@
                             <div class="flex items-center justify-center w-7 ml-3">
                                 <div class="bg-red-500 rounded-full w-2 h-2 ring-4 ring-red-100"></div>
                             </div>
-                            <span class="text-red-500">خروج</span>
+                            <span>خروج</span>
                         </button>
                     </form>
                 </div>
