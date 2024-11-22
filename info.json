@@ -10,8 +10,8 @@
             "url": "https://weska.ir"
         }
     ],
-    "requirements": {
-        "weska": ["1.0.0"]
+    "dependencies": {
+        "weska": "1.0.0"
     },
     "screenshot": "screenshot.png",
     "version": "1.6.0",
