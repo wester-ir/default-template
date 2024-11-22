@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "watch": "npx ../../../../node_modules/tailwindcss -i ./assets/css/dev/style.css -o ./assets/css/style.css --watch"
+        "dev": "npx ../../../../node_modules/tailwindcss -i ./assets/css/dev/style.css -o ./assets/css/style.css --watch"
     }
 }

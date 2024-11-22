@@ -11,7 +11,7 @@
         }
     ],
     "dependencies": {
-        "weska": "1.0.0"
+        "weska": "1.0.0|1.1.0"
     },
     "screenshot": "screenshot.png",
     "version": "1.6.0",
