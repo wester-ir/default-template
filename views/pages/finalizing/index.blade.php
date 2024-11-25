@@ -157,7 +157,7 @@
                         @if (! $couriers->isEmpty())
                             <div class="mt-4 space-y-4">
                                 @foreach ($couriers as $courier)
-                                    <div class="flex items-start">
+                                    <label class="flex items-start cursor-pointer">
                                         <div class="pt-1">
                                             <input type="radio" name="courier_id" value="{{ $courier->id }}" @checked($courier->is_default || $couriers->count() === 1)>
                                         </div>
@@ -170,7 +170,7 @@
                                                 <div class="text-sm">{{ $courier->type->label() }}</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </label>
                                 @endforeach
                             </div>
                         @else

@@ -117,7 +117,7 @@ header.header .search input[type="text"] {
 }
 
 .section > div.heading > .title {
-    @apply border-b-4 border-amber-300 py-3 -mb-[3px];
+    @apply border-b-4 border-amber-300 py-2 -mb-[3px];
 }
 
 .content-tabs > ul {

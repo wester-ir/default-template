@@ -96,7 +96,7 @@
                 </div>
             </header>
 
-            <nav id="navbar" class="shadow bg-neutral-100 transition-transform data-[is-hidden=true]:-translate-y-full" data-is-hidden="false">
+            <nav id="navbar" class="shadow bg-stone-50 transition-transform data-[is-hidden=true]:-translate-y-full" data-is-hidden="false">
                 <div class="container relative navbar-indicator-triggers">
                     <div class="relative flex items-center h-12">
                         @template_include('views.layouts.default.categories')
