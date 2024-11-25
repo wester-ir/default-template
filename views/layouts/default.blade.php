@@ -106,10 +106,16 @@
                         <div class="overflow-x-auto hide-scrollbar flex-1">
                             <ul class="flex items-center space-x-4 space-x-reverse text-sm">
                                 <li class="navbar-indicator-trigger">
-                                    <a href="{{ route('client.latest') }}" class="whitespace-pre">جدیدترین ها</a>
+                                    <a href="{{ route('client.latest') }}" class="flex items-center whitespace-pre">
+                                        <i class="fi fi-rr-flower text-lg flex ml-2"></i>
+                                        <span>جدیدترین ها</span>
+                                    </a>
                                 </li>
                                 <li class="navbar-indicator-trigger">
-                                    <a href="{{ route('client.best-selling') }}" class="whitespace-pre">پرفروش ترین ها</a>
+                                    <a href="{{ route('client.best-selling') }}" class="flex items-center whitespace-pre">
+                                        <i class="fi fi-rr-star text-lg flex ml-2"></i>
+                                        <span>پرفروش ترین ها</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

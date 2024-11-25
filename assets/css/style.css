@@ -622,6 +622,10 @@ video {
   right: 0px !important;
 }
 
+.right-2 {
+  right: 0.5rem !important;
+}
+
 .top-0 {
   top: 0px !important;
 }
@@ -1526,6 +1530,20 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
+.bg-gradient-to-l {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;
+}
+
+.from-\[\#fc466b\] {
+  --tw-gradient-from: #fc466b var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(252 70 107 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.to-\[\#3f5efb\] {
+  --tw-gradient-to: #3f5efb var(--tw-gradient-to-position) !important;
+}
+
 .fill-current {
   fill: currentColor !important;
 }
@@ -1586,11 +1604,6 @@ video {
 .px-5 {
   padding-left: 1.25rem !important;
   padding-right: 1.25rem !important;
-}
-
-.py-1 {
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
 }
 
 .py-10 {
@@ -3155,6 +3168,16 @@ header.header .search input[type="text"]:focus {
   background-color: rgb(14 165 233 / var(--tw-bg-opacity)) !important;
 }
 
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1 !important;
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
+}
+
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(156 163 175 / var(--tw-text-opacity)) !important;
@@ -3168,6 +3191,12 @@ header.header .search input[type="text"]:focus {
 .hover\:text-white:hover {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color) !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
 }
 
 .hover\:shadow-md:hover {

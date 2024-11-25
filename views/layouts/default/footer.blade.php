@@ -83,8 +83,9 @@
         </div>
     </div>
     <div class="bg-white border-t border-neutral-200 py-3">
-        <div class="container text-sm text-center">
-            کلیه  حقوق این سایت محفوظ است.
+        <div class="container flex flex-col md:flex-row items-center justify-center md:justify-between text-sm text-center">
+            <div>کلیه  حقوق این سایت محفوظ است.</div>
+            <a class="bg-gradient-to-l from-[#fc466b] to-[#3f5efb] badge text-sm mt-3 md:mt-0 shadow text-white hover:shadow-lg hover:text-black hover:bg-white" href="https://weska.ir" target="_blank">طراحی و اجرا توسط <b>وسکا</b></a>
         </div>
     </div>
 </footer>
