@@ -966,6 +966,10 @@ video {
   height: 100vh !important;
 }
 
+.h-7 {
+  height: 1.75rem !important;
+}
+
 .min-h-\[115px\] {
   min-height: 115px !important;
 }
@@ -1645,6 +1649,11 @@ video {
   padding-bottom: 1px !important;
 }
 
+.px-1 {
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+}
+
 .pl-11 {
   padding-left: 2.75rem !important;
 }
@@ -1659,6 +1668,10 @@ video {
 
 .pt-16 {
   padding-top: 4rem !important;
+}
+
+.pt-\[2px\] {
+  padding-top: 2px !important;
 }
 
 .text-left {
@@ -3434,6 +3447,10 @@ header.header .search input[type="text"]:focus {
     display: none !important;
   }
 
+  .md\:h-6 {
+    height: 1.5rem !important;
+  }
+
   .md\:w-0 {
     width: 0px !important;
   }
@@ -3511,6 +3528,11 @@ header.header .search input[type="text"]:focus {
   .md\:py-1 {
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
+  }
+
+  .md\:px-1 {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
 
   .md\:text-base {

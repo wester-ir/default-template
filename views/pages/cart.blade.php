@@ -101,7 +101,7 @@
                         // Image
                         items += '<a href="'+ (item.url || '#') +'" class="block w-32 min-w-[8rem] h-32 min-h-[8rem]">';
                             if (item.image) {
-                                items += '<img src="'+ item.image.url['thumbnail'] +'" class="bg-neutral-100 object-cover w-full h-full rounded-lg">';
+                                items += '<img src="'+ item.image['thumbnail'] +'" class="bg-neutral-100 object-cover w-full h-full rounded-lg">';
                             } else {
                                 items += '<img src="{{ template_asset('assets/img/no-image.jpg') }}" class="bg-neutral-100 object-cover w-full h-full rounded-lg">';
                             }
