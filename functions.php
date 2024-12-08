@@ -1,11 +1,11 @@
 <?php
 
+use App\Core\Client\ProductCore;
+
 function client_index_func()
 {
-    $service = new \App\Services\ProductService();
-
-    $latestProducts = $service->latest()->paginate(10);
-    $bestSellingProducts = $service->addScope('variant_items')->bestSelling()->paginate(10);
+    $latestProducts = ProductCore::paginateLatestProducts(10);
+    $bestSellingProducts = ProductCore::paginateBestSellingProducts(10);
 
     // Share data
     \View::share('latestProducts', $latestProducts);
