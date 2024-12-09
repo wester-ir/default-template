@@ -1,2 +1,2 @@
-## The default template for the Weska ecommerce project
+## The default template for the Wester ecommerce project
 + version: 1.x
