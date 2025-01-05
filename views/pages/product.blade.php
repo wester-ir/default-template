@@ -8,6 +8,13 @@
     @template_include('views.components.product.breadcrumb')
 @endsection
 
+@push('meta-tags')
+    @if ($product->image)
+        <meta property="og:image" content="{{ $product->image->url['medium'] }}">
+        <meta property="twitter:image" content="{{ $product->image->url['medium'] }}">
+    @endif
+@endpush
+
 @section('content')
     <div class="container">
         <div class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse">
