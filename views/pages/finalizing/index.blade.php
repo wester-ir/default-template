@@ -51,7 +51,7 @@
                         <div class="mt-5 space-y-3">
                             @foreach ($addresses as $key => $address)
                                 <label class="flex items-center border border-neutral-200 hover:ring ring-slate-200 transition-all p-5 rounded-lg cursor-pointer">
-                                    <input type="radio" name="address_id" value="{{ $address->id }}" @checked($key === 0)>
+                                    <input type="radio" name="address_id" value="{{ $address->id }}" @checked($key === 0) onchange="addressSelected({{ $address->province->id }}, {{ $address->city->id }})">
                                     <div class="flex-1 mr-4">
                                         <div>{{ $address->address }}</div>
 
@@ -93,7 +93,7 @@
 
                             <div class="form-control" data-form-field-id="city_id">
                                 <label for="city_id">شهر *</label>
-                                <select id="city_id" class="default" name="address[city_id]" onchange="cityChanged()"></select>
+                                <select id="city_id" class="default" name="address[city_id]" onchange="cityChanged(event)"></select>
                             </div>
 
                             <div class="form-control" data-form-field-id="postal_code">
@@ -344,8 +344,8 @@
                 courier_id: $('[name="courier_id"]:checked').val(),
                 address_id: addressId,
                 address: ! addressId ? {
-                    province_id: $('#province_id').val(),
-                    city_id: $('#city_id').val(),
+                    province_id: getProvinceId(),
+                    city_id: getCityId(),
                     postal_code: $('#postal_code').val(),
                     address: $('#address').val(),
                     is_self: $('#is_self').is(':checked'),
@@ -389,8 +389,8 @@
             axios.get('{{ route('client.cart.ajax.stats') }}', {
                 params: {
                     courier_id: $('[name="courier_id"]:checked').val(),
-                    province_id: $('#province_id').val(),
-                    city_id: $('#city_id').val(),
+                    province_id: getProvinceId(),
+                    city_id: getCityId(),
                 },
             })
                 .then(function (response) {
@@ -434,9 +434,39 @@
                 });
         }
 
+        function changeDestination(provinceId, cityId) {
+            window.province_id = provinceId;
+            window.city_id = cityId;
+        }
+
+        function addressSelected(provinceId, cityId) {
+            changeDestination(provinceId, cityId);
+            getStats();
+        }
+
+        function getProvinceId() {
+            if ($('[name=address_id]:checked').val() == 0) {
+                return $('#province_id').val();
+            }
+
+            return window.province_id;
+        }
+
+        function getCityId() {
+            if ($('[name=address_id]:checked').val() == 0) {
+                return $('#city_id').val();
+            }
+
+            return window.city_id;
+        }
+
         $('#province_id, #city_id').selectbox();
 
         ready(() => {
+            @if ($addresses->isNotEmpty())
+                changeDestination({{ $addresses[0]->province_id }}, {{ $addresses[0]->city_id }});
+            @endif
+
             getStats();
         });
     </script>
