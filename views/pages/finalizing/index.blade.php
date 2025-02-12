@@ -435,8 +435,8 @@
         }
 
         function changeDestination(provinceId, cityId) {
-            window.province_id = provinceId;
-            window.city_id = cityId;
+            window.province_id_val = provinceId;
+            window.city_id_val = cityId;
         }
 
         function addressSelected(provinceId, cityId) {
@@ -445,19 +445,23 @@
         }
 
         function getProvinceId() {
-            if ($('[name=address_id]:checked').val() == 0) {
+            const addressId = $('[name=address_id]:checked').val();
+
+            if (! addressId || addressId == 0) {
                 return $('#province_id').val();
             }
 
-            return window.province_id;
+            return window.province_id_val;
         }
 
         function getCityId() {
-            if ($('[name=address_id]:checked').val() == 0) {
+            const addressId = $('[name=address_id]:checked').val();
+
+            if (! addressId || addressId == 0) {
                 return $('#city_id').val();
             }
 
-            return window.city_id;
+            return window.city_id_val;
         }
 
         $('#province_id, #city_id').selectbox();
